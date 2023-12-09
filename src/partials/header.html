@@ -1,47 +1,23 @@
-<!-- Start with Mobile first -> Tablet -> Desktop 
-Breakpoints 480px - 768px - 1280px-->
+<div class="header-container">
+    <header class="header-home">
 
-<!-- 
-FT-01 Creaază header-ul paginii principale (mobile, tablet, desktop) 
-FT-02 La click pe logo/butonul "Home", se afișează pagina principală
-FT-03 La click pe butonul "My Library", se afișează biblioteca utilizatorului -->
-<header class="header">
-    <div class="container-header-home">
-        <div class="switch-control">
-            <input class="switch-control-toggle" type="checkbox" name="switch" id="switch-control"
-                aria-label="Change Theme">
-            <label aria-hidden="true" class="theme-switch" for="theme-switch-toggle"></label>
-            <div aria-hidden="true" class="theme-switch-marker"></div>
-        </div>
-        <div class="header-nav-container">
-            <div class="logo-container">
-                <svg class="header-logo" width="24" height="24">
-                    <use href="/src/icons/symbol-defs.svg#icon-film"></use>
-                </svg>
-
-                <h1 class="title"> Filmoteka</h1>
-            </div>
             <nav>
                 <ul class="site-nav-list">
                     <li class="site-nav-item">
-                        <button class="site-nav-button is active js home" data-request="Home"
-                            aria-label="home">Home</button>
+                        <button class="site-nav-button home-btn" data-request="Home" aria-label="home">Home</button>
                     </li>
                     <li class="site-nav-item">
-                        <button class="site-nav-button js-library" data-request="library"
-                            aria-label="my library"></button>
-                        My library</button>
+                        <button class="site-nav-button" data-request="library" aria-label="my library">My library</button>
                     </li>
                 </ul>
             </nav>
-        </div>
 
         <form class="search-form">
             <input class="search-form-input" name="query" placeholder="Movie Search" aria-label="movie search"
                 autocomplete="off">
             <button type="submit" class="search-form-button" aria-label="search">
-                <svg class="icon-search" width="12" height="12">
-                    <use href="/src/icons/symbol-defs.svg#icon-search"></use>
+                <svg class="icon-search" width="14" height="14">
+                    <use href="./icons/symbol-defs.svg#icon-search"></use>
                 </svg>
 
             </button>
@@ -51,20 +27,15 @@ FT-03 La click pe butonul "My Library", se afișează biblioteca utilizatorului 
                 enter
             </p>
         </div>
-
-        <ul class="library-list">
-            <li class="library-item">
-                <button class="button-library" data-request="watched" aria-label="watched"> Watched</button>
-            </li>
-
-            <li class="library-item">
-                <button class="button-library is active" data-request="queue" aria-label="queue"> Queue</button>
-            </li>
-        </ul>
-        <div class="library-delete">
-            <div class="library-item-delete">
-                <button type="button" class="button-library-button-item" data-request="clear"></button>
+        <div class="cover">
+            <div class="logo-container">
+                <svg class="header-logo" width="32" height="32">
+                    <use href="/src/icons/symbol-defs.svg#icon-film"></use>
+                </svg>
+                <h1 class="title"> Filmoteka</h1>
             </div>
         </div>
-    </div>
+    
+
 </header>
+</div>
