@@ -3,11 +3,9 @@
 // foloseste Notliflix pentru afisare mesaje/alerte/notificari
 
 import Notiflix from 'notiflix';
-import axios from 'axios';
 import { fetchMovies } from './fetchMovies';
 
 let searchQuery = '';
-let currentPage = 1;
 
 export const searchForm = document.querySelector('.search-form');
 
