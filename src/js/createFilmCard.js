@@ -2,6 +2,7 @@
 // FT-06 Creează containerul paginii principale pentru poziționarea
 // corectă a cardurilor de film (mobile, tablet, desktop) 
 
+
 export function createFilmCard(data) {
     const moiveCard = document.querySelector('.movie-wrapper');
 
