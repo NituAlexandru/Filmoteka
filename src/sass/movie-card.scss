@@ -1,0 +1,58 @@
+.movie {
+    max-width: 1280px;
+    padding: 60 70;
+    &-wrapper {
+        display: grid; 
+        grid-template-columns: repeat(3, 274px);
+        grid-template-rows: repeat(3, minmax(100px auto));
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        &__card {
+            cursor: pointer;
+            border-radius: 5px;
+            box-sizing: border-box;
+            &:hover {
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                margin: -1px;
+            }
+            &-img {
+                width: 274px;
+                height: 398px;
+                border-radius: 5px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        &__footer {
+            padding: 10px;
+        }
+        &__title {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            text-transform: uppercase;
+            color: black;
+        }
+        &__info {
+            display: flex;
+            column-gap: 4px;
+            color: #B92F2C;
+            font-family: Roboto;
+            font-size: 18px;
+            margin-top: -12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 0;
+        }
+
+    }
+}
+
+.container {
+    max-width: 1226px;
+    margin: 0 auto;
+}
