@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import { createFilmCard } from './createFilmCard';
 
 const API_KEY = 'a5406dd14816b26728050ce2e3dfdd5f';
 const BASE_URL = `https://api.themoviedb.org/3`;
@@ -29,6 +30,7 @@ export async function fetchMovies(searchQuery = '') {
 window.addEventListener('load', async () => {
   try {
     const popularMovies = await fetchMovies();
+    createFilmCard(popularMovies);
     console.log('Filme populare:', popularMovies);
     // Cod pentru afișarea filmelor populare
   } catch (error) {

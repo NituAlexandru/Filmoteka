@@ -4,6 +4,7 @@
 
 import Notiflix from 'notiflix';
 import { fetchMovies } from './fetchMovies';
+import { createFilmCard } from './createFilmCard';
 
 let searchQuery = '';
 
@@ -15,6 +16,7 @@ searchForm.addEventListener('submit', async e => {
 
   try {
     const moviesData = await fetchMovies(searchQuery);
+    createFilmCard(moviesData);
     console.log('Filme gasite', moviesData);
   } catch (error) {
     console.error(

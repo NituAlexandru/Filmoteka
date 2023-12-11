@@ -2,9 +2,9 @@
 // FT-06 Creează containerul paginii principale pentru poziționarea
 
 export function createFilmCard(data) {
-    const moiveCard = document.querySelector('.movie-wrapper');
+    const movieCard = document.querySelector('.movie-wrapper');
 
-    moiveCard.textContent = '';
+    movieCard.textContent = '';
 
     data.results.forEach((response) => {
         const movieElement = document.createElement('div');
@@ -27,7 +27,7 @@ export function createFilmCard(data) {
         </div>        
         `
 
-        moiveCard.append(movieElement)
+        movieCard.append(movieElement);
     })
 }
 
