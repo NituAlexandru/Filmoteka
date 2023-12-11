@@ -10,7 +10,7 @@ let searchQuery = '';
 
 export const searchForm = document.querySelector('.search-form');
 
-searchForm.addEventListener('submit', async e => {
+searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   searchQuery = e.currentTarget.elements.searchQuery.value.trim();
 

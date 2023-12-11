@@ -5,7 +5,3 @@ import { modal, btn, span } from './js/footerModal.js';
 
 fetchMovies();
 createFilmCard();
-searchForm();
-modal();
-btn();
-span();
