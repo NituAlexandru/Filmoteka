@@ -1,6 +1,5 @@
 // FT-05 Creează șablonul unui card de film - functie
 // FT-06 Creează containerul paginii principale pentru poziționarea
-// corectă a cardurilor de film (mobile, tablet, desktop) 
 
 export function createFilmCard(data) {
     const moiveCard = document.querySelector('.movie-wrapper');
@@ -31,3 +30,4 @@ export function createFilmCard(data) {
         moiveCard.append(movieElement)
     })
 }
+

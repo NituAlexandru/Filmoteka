@@ -1,0 +1,249 @@
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: auto;
+  color: #080808;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+footer {
+  background-color: #f7f7f7;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.text-direction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+.heart {
+  color: #b92f2c;
+  width: 25px;
+  height: 12.88px;
+  flex-shrink: 0;
+}
+
+.students {
+  color: #171ad3;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.footer-modal {
+  display: none;
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.56);
+}
+
+/* Modal Content/Box */
+.footer-modal-content {
+  background-color: #f7f7f7;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  position: relative;
+  background: rgba(143, 143, 149, 0.227);
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgb(229, 230, 236);
+  border: 2px outset #7c7c7e;
+  color: white;
+  padding: 20px;
+}
+
+/* The Close Button */
+
+.close-button-member:hover,
+.close-button-member:focus {
+  color: rgb(241, 234, 234);
+  text-decoration: none;
+  cursor: pointer;
+}
+.close-button-member svg {
+  width: 30px;
+  height: 30px;
+}
+.close-button-member {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 7px;
+  right: 15px;
+}
+
+.member-section {
+  background-color: rgb(75 73 73);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
+    0 2px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 0 0 4px 4px;
+  margin-top: 10px;
+  padding-left: 10px;
+  border: 2px inset rgb(74, 72, 72);
+}
+
+.footer-modal-title:hover:before {
+  right: -40%;
+  transform: skewX(-30deg) skewY(-30deg);
+}
+ul {
+  list-style-type: none;
+}
+.footer-modal-title:hover:after {
+  left: 100%;
+  transform: skewX(30deg) skewY(30deg);
+}
+
+.footer-modal-title:before,
+.footer-modal-title:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.23);
+  transition: 0.9s;
+  pointer-events: none;
+}
+
+.footer-modal-title:before {
+  left: -100%;
+}
+
+.footer-modal-title:after {
+  right: -100%;
+}
+
+.member-title {
+  color: white;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 39px;
+}
+.member-title1 {
+  color: white;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.last-image {
+  width: 60px;
+  border-radius: 50%;
+  border: 2px solid #f0eae6;
+}
+
+.member-links svg {
+  width: 20px;
+  height: 20px;
+}
+
+.member-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.member-links .social-links {
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.member-links svg {
+  width: 20px;
+  height: 20px;
+  transition: fill 0.5s;
+}
+.member-links svg:hover {
+  fill: rgb(249, 200, 1);
+}
+
+/*  Tablet Design */
+@media screen and (min-width: 768px) {
+  .group-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: normal;
+  }
+
+  .member-section {
+    margin: 86px 13px 24px 5px;
+    width: calc((100% - 40px) / 2);
+    min-height: 100px;
+  }
+
+  .member-title {
+    color: white;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 15px;
+  }
+
+  .member-title1 {
+    color: white;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .footer-modal-content {
+    background-color: #f7f7f7;
+    margin: 15% auto;
+    padding: 20px;
+    max-width: 768px;
+    position: relative;
+    background: rgba(143, 143, 149, 0.227);
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgb(229, 230, 236);
+    border: 2px outset #7c7c7e;
+    color: white;
+    padding: 20px;
+  }
+  .footer-modal-title {
+    color: white;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    margin-top: 20px;
+  }
+  .member-links {
+    gap: 2px;
+  }
+}

@@ -1,0 +1,159 @@
+ul {
+  list-style: none;
+}
+.header-container {
+  padding: 20px;
+}
+
+.header-home {
+  // padding: 34px 20px 97px;
+  background-repeat: no-repeat;
+  background-image: url('./images/background-header-1x-m.png');
+  background-position: center;
+  background-size: 100%;
+  min-width: 280px;
+  height: 460px;
+  border-radius: 15px;
+  padding: 0 14px;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .header-home {
+    background-image: url('./images/background-header-2x-m.png');
+  }
+}
+
+.site-nav-list {
+  display: flex;
+  gap: 5px;
+  padding: 14px 0 8px 8px;
+}
+
+.site-nav-button {
+  font-size: 12px;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 100px;
+  text-transform: uppercase;
+  padding: 10px 26px;
+}
+
+.home-btn {
+  padding: 10px 22px;
+}
+
+.search-form {
+  border-radius: 100px;
+  background: #fff;
+  border: none;
+  padding: 10px 0 10px 14px;
+}
+
+.search-form-input {
+  border: none;
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.error-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-error {
+  display: none;
+  position: absolute;
+  top: 20px;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: left;
+  color: #ff001b;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+gap: 8px;
+margin-bottom: 20px;
+}
+
+.title {
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.header-logo {
+    fill: #FFF;
+}
+
+/*----Design Tablet----*/
+@media (min-width: 768px) {
+  .header-home {
+    background-repeat: no-repeat;
+    background-image: url(/src/images/background-header-1x-t.png);
+    width: 704px;
+    height: 222px;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .header-home {
+      background-image: url('/src/images/background-header-2x-t.png');
+    }
+  }
+ 
+}
+
+@media (min-width: 1440px) {
+  .header-home {
+    // background-image: url(/src/images/background-header-1x-d.png);
+    padding: auto;
+    margin: auto;
+    height: 316px;
+    width: 1216px;
+  }
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .header-home {
+    //   background-image: url('/src/images/background-header-2x-d.png');
+  }
+
+
+  .search-form {
+    position: relative;
+    max-width: 336px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  
+  .search-form-button {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    outline: none;
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .icon-search {
+    position: absolute;
+  }
+
+}
