@@ -2,20 +2,7 @@
 // FT-06 Creează containerul paginii principale pentru poziționarea
 // corectă a cardurilor de film (mobile, tablet, desktop) 
 
-const API_KEY = 'a5406dd14816b26728050ce2e3dfdd5f';
-const API_URL = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
-
-
-function getMovie() {
-    fetch(`${API_URL}&api_key=${API_KEY}`)
-    .then(res => res.json())
-    .then(data => {
-       createFilmCard(data)
-    })
-}
-
-
-function createFilmCard(data) {
+export function createFilmCard(data) {
     const moiveCard = document.querySelector('.movie-wrapper');
 
     moiveCard.textContent = '';
@@ -44,5 +31,3 @@ function createFilmCard(data) {
         moiveCard.append(movieElement)
     })
 }
-
-getMovie()
