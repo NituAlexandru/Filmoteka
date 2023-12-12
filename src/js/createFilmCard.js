@@ -8,7 +8,7 @@ export async function createFilmCard(dataPromise) {
     movieCard.textContent = '';
 
     if (!data || !data.results) {
-        console.error('Datele nu sunt disponibile sau nu au proprietatea "results".');
+        // console.error('Datele nu sunt disponibile sau nu au proprietatea "results".');
         return;
     }
 

@@ -25,7 +25,7 @@ document
   .forEach(function (link) {
     link.addEventListener('click', function () {
       const svg = this.querySelector('svg');
-      svg.style.fill = 'white';
+      svg.style.fill = 'red';
     });
 
     link.addEventListener('click', function (event) {

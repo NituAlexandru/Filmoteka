@@ -1,3 +1,5 @@
+body {font-family: 'Roboto', sans-serif;
+}
 ul {
   list-style: none;
 }
@@ -49,7 +51,6 @@ ul {
   background: #fff;
   border: none;
   padding: 10px 0 10px 14px;
- 
 }
 
 .search-form-input {
@@ -60,7 +61,7 @@ ul {
   display: block;
   border-radius: 50%;
 }
-.cover{
+.cover {
   display: flex;
   justify-content: center;
 }
@@ -73,14 +74,14 @@ ul {
 }
 
 .title {
-    color: #FFF;
-    text-align: center;
-    font-size: 32px;
-    font-weight: 500;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 .header-logo {
-    fill: #FFF;
+  fill: #fff;
 }
 
 /*----Design Tablet----*/
@@ -89,8 +90,8 @@ ul {
     background-repeat: no-repeat;
     background-image: url(/src/images/background-header-1x-t.png);
     background-size: cover;
-      width: 100%;
-      height: 100%;
+    width: 100%;
+    height: 100%;
   }
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -102,20 +103,19 @@ ul {
       height: 100%;
     }
   }
-.search-form {
-  display:inline-block;
-  position: relative;
-  top: -80px;
-
-}
-  .cover{
+  .search-form {
+    display: inline-block;
+    position: relative;
+    top: -80px;
+  }
+  .cover {
     display: flex;
     justify-content: left;
     margin: 10px 16px;
   }
- .site-nav-list{
-  padding: 15px 0 29px 163px 
- }
+  .site-nav-list {
+    padding: 15px 0 29px 163px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -131,10 +131,9 @@ ul {
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .header-home {
-    //   background-image: url('/src/images/background-header-2x-d.png');
-  }
-
+  // .header-home {
+  //   //   background-image: url('/src/images/background-header-2x-d.png');
+  // }
 
   .search-form {
     position: relative;
@@ -144,7 +143,6 @@ ul {
     text-align: center;
   }
 
-  
   .search-form-button {
     position: absolute;
     top: 8px;
@@ -158,13 +156,13 @@ ul {
   .icon-search {
     position: absolute;
   }
-.title {
-  color: #FFF;
-  font-size: 64px;
-  font-weight: 500;
-}
-.header-logo{
-  width: 59px;
-  height: 59px;
-}
+  .title {
+    color: #fff;
+    font-size: 64px;
+    font-weight: 500;
   }
+  .header-logo {
+    width: 59px;
+    height: 59px;
+  }
+}
