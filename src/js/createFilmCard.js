@@ -59,13 +59,14 @@ export async function createFilmCard(dataPromise) {
     movieElement.innerHTML = `
       <div class="movie-wrapper__card-img">
         <img src="https://image.tmdb.org/t/p/w500${response.poster_path}" alt="${title}">
-      </div>
+      <span class="movie-wrapper__info-rating">${rating}</span>
+        </div>
       <div class="movie-wrapper__footer">
         <div class="movie-wrapper__title">${title}</div>
         <div class="movie-wrapper__info">
           <p class="movie-wrapper__info-genres">${genreNames}</p>
-          <span class="movie-wrapper__info-year">| ${releaseYear}</span>
-          <span class="movie-wrapper__info-rating">${rating}</span>
+          <span class="movie-wrapper__info-year"> | ${releaseYear}</span>
+          
         </div>
       </div>`;
 

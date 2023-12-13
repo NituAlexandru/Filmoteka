@@ -11,13 +11,13 @@
   --border-hover-color: #b92f2c; /* culoarea border-ului la hover */
 }
 .container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    max-width: 1280px;
-    margin: 0 auto; 
-    padding: 32px; 
-    height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px;
+  height: 100%;
 }
 
 .movie-wrapper {
@@ -37,8 +37,9 @@
   cursor: pointer;
   transition: border 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
-  width: 280px; 
+  width: 280px;
   height: auto;
+  position: relative;
 }
 
 .movie-wrapper__card:hover {
@@ -72,13 +73,18 @@
   line-height: 16px;
 }
 .movie-wrapper__info-rating {
-    background-color: #B92F2C; 
-    color: white; 
-    padding: 2px 6px; 
-    border-radius: 4px; 
-    font-size: 14px; 
-    display: inline-block; 
-    margin-left: 4px; 
+  background-color: #b92f2c;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 24px;
+  font-weight: 500px;
+  display: inline-block;
+  margin-left: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 25%;
+  
 }
 
 /* Media query pentru tablete (min-width: 768px) */
