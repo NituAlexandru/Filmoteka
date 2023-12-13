@@ -93,6 +93,10 @@ footer {
   top: 7px;
   right: 15px;
 }
+.member-group {
+  padding: 0;
+}
+.group-section{padding: 0;}
 
 .member-section {
   background-color: rgb(75 73 73);
@@ -105,9 +109,14 @@ footer {
   border-radius: 0 0 4px 4px;
   margin-top: 10px;
   padding-left: 10px;
-  border: 2px inset rgb(74, 72, 72);
+  border: 4px inset #470202;
 }
-
+.member-name {
+  margin: 0;
+}
+.footer-modal-title{font-size: 20px;
+margin: 0px;
+padding:0px;}
 .footer-modal-title:hover:before {
   right: -40%;
   transform: skewX(-30deg) skewY(-30deg);
@@ -146,7 +155,7 @@ ul {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
+
   margin: 39px;
 }
 .member-title1 {
@@ -155,7 +164,6 @@ ul {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px;
 }
 
 .last-image {
@@ -185,7 +193,7 @@ ul {
   transition: fill 0.5s;
 }
 .member-links svg:hover {
-  fill: rgb(249, 200, 1);
+  fill: rgb(198, 22, 22);
 }
 
 /*  Tablet Design */
@@ -206,20 +214,21 @@ ul {
   .member-title {
     color: white;
     font-family: Roboto;
-    font-size: 18px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px;
-    margin: 15px;
+    margin: 2px;
   }
 
   .member-title1 {
     color: white;
     font-family: Roboto;
-    font-size: 18px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px;
+  }
+  .member-name {
+    margin: 0;
   }
 
   .footer-modal-content {
@@ -243,7 +252,9 @@ ul {
     font-style: normal;
     margin-top: 20px;
   }
+
   .member-links {
     gap: 2px;
+    margin-right: 8px;
   }
 }
