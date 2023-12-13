@@ -2,8 +2,8 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { createFilmCard } from './createFilmCard';
 
-const API_KEY = 'a5406dd14816b26728050ce2e3dfdd5f';
-const BASE_URL = `https://api.themoviedb.org/3`;
+export const API_KEY = 'a5406dd14816b26728050ce2e3dfdd5f';
+export const BASE_URL = `https://api.themoviedb.org/3`;
 export async function fetchMovies(searchQuery = '') {
   let url = '';
   if (searchQuery) {

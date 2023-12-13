@@ -1,5 +1,5 @@
-
-
+import axios from 'axios';
+import { API_KEY, BASE_URL } from './fetchMovies';
 
 export let genres = [];
 
@@ -14,5 +14,5 @@ export async function fetchGenres() {
 }
 
 window.addEventListener('load', async () => {
-    await fetchGenres();
+  await fetchGenres();
 });
