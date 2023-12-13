@@ -1,58 +1,125 @@
-.movie {
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  /* Definirea variabilelor pentru temele Light și Dark */
+  --background-color-light: #ffffff; /* fundal pentru tema Light */
+  --background-color-dark: #000000; /* fundal pentru tema Dark */
+  --text-color-light: #000000; /* text pentru tema Light */
+  --text-color-dark: #ffffff; /* text pentru tema Dark */
+  --border-hover-color: #b92f2c; /* culoarea border-ului la hover */
+}
+.container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     max-width: 1280px;
-    padding: 60 70;
-    &-wrapper {
-        display: grid; 
-        grid-template-columns: repeat(3, 274px);
-        grid-template-rows: repeat(3, minmax(100px auto));
-        gap: 30px;
-        justify-content: center;
-        align-items: center;
-        &__card {
-            cursor: pointer;
-            border-radius: 5px;
-            box-sizing: border-box;
-            &:hover {
-                border: 1px solid rgba(0, 0, 0, 0.08);
-                margin: -1px;
-            }
-            &-img {
-                width: 274px;
-                height: 398px;
-                border-radius: 5px;
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
-        &__footer {
-            padding: 10px;
-        }
-        &__title {
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 24px;
-            text-transform: uppercase;
-            color: black;
-        }
-        &__info {
-            display: flex;
-            column-gap: 4px;
-            color: #B92F2C;
-            font-family: Roboto;
-            font-size: 18px;
-            margin-top: -12px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 0;
-        }
-
-    }
+    margin: 0 auto; 
+    padding: 32px; 
+    height: 100%; 
 }
 
-.container {
-    max-width: 1226px;
-    margin: 0 auto;
+.movie-wrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* Pe mobil, o singură coloană */
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--background-color-light);
+}
+
+.movie-wrapper__card {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--background-color-light);
+  transition: border 0.3s ease;
+  cursor: pointer;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  width: 280px; 
+  height: auto;
+}
+
+.movie-wrapper__card:hover {
+  border: 1px solid var(--border-hover-color);
+  box-shadow: 0 6px 22px var(--border-hover-color);
+  scale: 1.02;
+}
+
+.movie-wrapper__card-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-wrapper__footer {
+  padding: 10px;
+  color: var(--text-color-light); /* Culoare text inițială Light */
+}
+
+.movie-wrapper__title {
+  font-size: 16px;
+  margin: 5px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.movie-wrapper__info {
+  font-size: 14px;
+  color: #b92f2c;
+  font-weight: 500;
+  line-height: 16px;
+}
+.movie-wrapper__info-rating {
+    background-color: #B92F2C; 
+    color: white; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    display: inline-block; 
+    margin-left: 4px; 
+}
+
+/* Media query pentru tablete (min-width: 768px) */
+@media (min-width: 768px) {
+  .movie-wrapper {
+    grid-template-columns: repeat(2, 1fr); /* 2 coloane pe tablete */
+    gap: 30px;
+  }
+  .movie-wrapper__card-img img {
+    width: 336px;
+    height: 455px;
+  }
+
+  .movie-wrapper__card {
+    width: 336px;
+  }
+}
+
+/* Media query pentru desktop (min-width: 1280px) */
+@media (min-width: 1280px) {
+  .movie-wrapper {
+    grid-template-columns: repeat(3, 1fr); /* 3 coloane pe desktop */
+    gap: 40px;
+  }
+  .movie-wrapper__info {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+  .movie-wrapper__card-img img {
+    width: 395px;
+    height: 574px;
+  }
+
+  .movie-wrapper__card {
+    width: 395px;
+  }
+}
+
+/* Stiluri pentru Dark theme */
+body.dark-theme {
+  --background-color-light: #000000; /* fundal pentru tema Dark */
+  --text-color-light: #ffffff; /* text pentru tema Dark */
 }
