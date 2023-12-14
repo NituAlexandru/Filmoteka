@@ -1,4 +1,5 @@
 <header class="header-home">
+  <div class="container-nav">
     <nav>
       <ul class="site-nav-list">
         <li class="site-nav-item">
@@ -24,6 +25,8 @@
 
     <form class="search-form">
       <input
+        id="searchInput"
+        type="text"
         class="search-form-input"
         name="searchQuery"
         placeholder="Movie Search"
@@ -36,12 +39,11 @@
         </svg>
       </button>
     </form>
-    <div class="cover">
-      <div class="logo-container">
-        <svg class="header-logo" width="32" height="32">
-          <use href="/src/icons/symbol-defs.svg#icon-film"></use>
-        </svg>
-        <h1 class="title">Filmoteka</h1>
-      </div>
-    </div>
-  </header>
+  </div>
+  <div class="logo-container">
+    <svg class="header-logo" width="32" height="32">
+      <use href="/src/icons/symbol-defs.svg#icon-film"></use>
+    </svg>
+    <h1 class="title">Filmoteka</h1>
+  </div>
+</header>

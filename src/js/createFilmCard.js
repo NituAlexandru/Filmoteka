@@ -1,4 +1,5 @@
 import { genres } from './fetchGenres';
+import { openFilmModal } from './openFilmModal.js';
 
 export async function createFilmCard(dataPromise) {
   const movieCard = document.querySelector('.movie-wrapper');
@@ -55,6 +56,8 @@ export async function createFilmCard(dataPromise) {
         ? response.vote_average.toFixed(2)
         : 'N/A';
 
+    movieElement.addEventListener('click', () => openFilmModal(response));
+    
     // Construiește HTML-ul pentru cardul filmului/serialului
     movieElement.innerHTML = `
       <div class="movie-wrapper__card-img">
