@@ -5,7 +5,7 @@ import { createFilmCard } from './createFilmCard';
 export const API_KEY = 'a5406dd14816b26728050ce2e3dfdd5f';
 export const BASE_URL = `https://api.themoviedb.org/3`;
 
-async function fetchMovieTrailer(movieId) {
+export async function fetchMovieTrailer(movieId) {
   const trailerUrl = `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
   try {
     const response = await axios.get(trailerUrl);
@@ -25,17 +25,16 @@ async function fetchMovieTrailer(movieId) {
   }
 }
 
-export async function fetchMovies(searchQuery = '') {
+export async function fetchMovies(searchQuery = '', page = 1) {
   let url = '';
   if (searchQuery) {
-    // Caută filme după termenul specificat
     url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${encodeURIComponent(
       searchQuery
-    )}&page=1`;
+    )}&page=${page}`;
   } else {
-    // Returnează filmele populare
-    url = `${BASE_URL}/trending/all/day?language=en-US&api_key=${API_KEY}`;
+    url = `${BASE_URL}/trending/all/day?language=en-US&api_key=${API_KEY}&page=${page}`;
   }
+
   try {
     const response = await axios.get(url);
     const moviesWithTrailers = await Promise.all(
