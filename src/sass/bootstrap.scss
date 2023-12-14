@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: red;
+  border-color: red;
+  color: #fff;
+}
+
+/* Stilizează sagetile de navigare */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+  border-radius: 0;
+}
