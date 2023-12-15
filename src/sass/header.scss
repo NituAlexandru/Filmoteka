@@ -115,8 +115,7 @@ div a {
   align-items: center;
   width: 250px;
   align-self: center;
-  justify-content: center;
-  position: relative;
+  justify-content: center;  
   z-index: 2;
 }
 .fa-search {
@@ -127,6 +126,8 @@ div a {
   position: absolute;
   cursor: pointer;
   right: 0;
+  z-index: 3;
+ 
 }
 
 .logo-container {
