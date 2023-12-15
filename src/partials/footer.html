@@ -10,318 +10,341 @@ Creează o fereastră modală (mobile, tablet, desktop) cu informații
 despre membrii echipei tale,
 care se va deschide la click pe textul "GoIT Students" din footer. -->
 
-<footer>
-    <div class="footer-container">
-      <p class="rights-reserved">© 2023 | All Rights Reserved |</p>
-      <div class="text-direction">
-        <p>Developed with</p>
-        <svg class="heart">
-          <use href="./symbols.svg#icon-heart"></use>
-        </svg>
-        <!-- Open Modal -->
-        <p id="openFooterModal" class="students">by GoIT Students</p>
-        <div id="myFooterModal" class="footer-modal">
-          <!-- Modal content -->
-          <div class="footer-modal-content">
+<footer id="openFooterModal">
+  <div class="footer-container">
+    <p class="rights-reserved">© 2023 | All Rights Reserved | Developed with</p>
+    <div class="text-direction">
+      <svg class="heart">
+        <use href="./icons/symbol-defs.svg#icon-heart"></use>
+      </svg>
+      <!-- Open Modal -->
+      <p class="students">by GoIT Students</p>
+      <div id="myFooterModal" class="footer-modal">
+        <!-- Modal content -->
+        <div class="footer-modal-content">
+          <div class="title-btn-container">
             <h3 class="footer-modal-title">The project was made by:</h3>
-            <button
-              type="button"
-              class="close-button-member"> 
+            <button type="button" class="close-button-member">
               <svg class="close-icon-member">
-                <use href="./symbols.svg#icon-x-circle"> </use>
+                <use href="./icons/symbol-defs.svg#icon-x-circle"></use>
               </svg>
             </button>
-            <ul class="group-section">
-              <li class="member-section">
-                <picture class="edit-img">
-                  <source
-                    media="(min-width:1280px)"
-                    src="./images/alex-desktop1x.webp,
-                        images/alex-desktop2x.webp"
-                  />
-                  <source
-                    media="(min-width:768px)"
-                    srcset="
-                      ./images/alex-tablet1x.webp,
-                      images/alex-tablet2x.webp
-                    "
-                  />
-                  <source
-                    media="(max-width:320px)"
-                    srcset="
-                      ./images/alex-mobile1x.webp,
-                      images/alex-mobile2x.webp
-                    "
-                  />
-                  <img
-                    class="last-image"
-                    src="images/alex-mobile1x.webp"
-                    alt="alex"
-                  />
-                </picture>
-                <section class="member-title1">
-                  <h4 class="member-name">Alex Nitu</h4>
-                  <span class="member-description">
-                    Team Leader, Frontend Developer</span
-                  >
-                </section>
-                <ul class="member-links">
-                  <li class="social-links">
-                    <a href="https://github.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-github"></use>
-                    </svg>
-                  </li>
-
-                  <li class="social-links">
-                    <a href="https://linkedin.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-linkedin"></use>
-                    </svg>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="member-section">
-                <picture class="edit-img">
-                  <source
-                    media="(min-width:1280px)"
-                    src="./images/robert-desktop1x.webp,
-                        images/robert-desktop2x.webp"
-                  />
-                  <source
-                    media="(min-width:768px)"
-                    srcset="
-                      ./images/robert-tablet1x.webp,
-                      images/robert-tablet2x.webp
-                    "
-                  />
-                  <source
-                    media="(max-width:320px)"
-                    srcset="
-                      ./images/robert-mobile1x.webp,
-                      images/robert-mobile2x.webp
-                    "
-                  />
-                  <img
-                    class="last-image"
-                    src="images/robert-mobile1x.webp"
-                    alt="robert"
-                  />
-                </picture>
-                <section class="member-title1">
-                  <h4 class="member-name">Robert Sovar</h4>
-                  <span class="member-description">
-                    Scrum Master, Frontend Developer</span
-                  >
-                </section>
-                <ul class="member-links">
-                  <li class="social-links">
-                    <a href="https://github.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-github"></use>
-                    </svg>
-                  </li>
-
-                  <li class="social-links">
-                    <a href="https://linkedin.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-linkedin"></use>
-                    </svg>
-                  </li>
-                </ul>
-              </li>
-              <li class="member-section">
-                <picture class="edit-img1">
-                  <source
-                    media="(min-width:1280px)"
-                    src="./images/anatolii-desktop1x.webp,
-                        images/anatolii-desktop2x.webp"
-                  />
-                  <source
-                    media="(min-width:768px)"
-                    srcset="
-                      ./images/anatolii-tablet1x.webp,
-                      images/anatolii-tablet2x.webp
-                    "
-                  />
-                  <source
-                    media="(max-width:320px)"
-                    srcset="
-                      ./images/anatolii-mobile1x.webp,
-                      images/anatolii-mobile2x.webp
-                    "
-                  />
-                  <img
-                    class="last-image"
-                    src="images/anatolii-mobile1x.webp"
-                    alt="anatolii"
-                  />
-                </picture>
-                <section class="member-title">
-                  <h4 class="member-name">Anatoli</h4>
-                  <span class="member-description">Frontend Developer</span>
-                </section>
-                <ul class="member-links">
-                  <li class="social-links">
-                    <a href="https://github.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-github"></use>
-                    </svg>
-                  </li>
-
-                  <li class="social-links">
-                    <a href="https://linkedin.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-linkedin"></use>
-                    </svg>
-                  </li>
-                </ul>
-              </li>
-              <li class="member-section">
-                <picture class="edit-img1">
-                  <source
-                    media="(min-width:1280px)"
-                    src="./images/ancuta-desktop1x.webp,
-                        images/ancuta-desktop2x.webp"
-                  />
-                  <source
-                    media="(min-width:768px)"
-                    srcset="
-                      ./images/ancuta-tablet1x.webp,
-                      images/ancuta-tablet2x.webp
-                    "
-                  />
-                  <source
-                    media="(max-width:320px)"
-                    srcset="
-                      ./images/ancuta-mobile1x.webp,
-                      images/ancuta-mobile2x.webp
-                    "
-                  />
-                  <img
-                    class="last-image"
-                    src="images/ancuta-mobile1x.webp"
-                    alt="ancuta"
-                  />
-                </picture>
-                <section class="member-title">
-                  <h4 class="member-name">Ancuta Ureche</h4>
-                  <span class="member-description"> Frontend Developer</span>
-                </section>
-                <ul class="member-links">
-                  <li class="social-links">
-                    <a href="https://github.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-github"></use>
-                    </svg>
-                  </li>
-
-                  <li class="social-links">
-                    <a href="https://linkedin.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-linkedin"></use>
-                    </svg>
-                  </li>
-                </ul>
-              </li>
-              <li class="member-section">
-                <picture class="edit-img1">
-                  <source
-                    media="(min-width:1280px)"
-                    src="./images/roxana-desktop1x.webp,
-                        images/roxana-desktop2x.webp"
-                  />
-                  <source
-                    media="(min-width:768px)"
-                    srcset="
-                      ./images/roxana-tablet1x.webp,
-                      images/roxana-tablet2x.webp
-                    "
-                  />
-                  <source
-                    media="(max-width:320px)"
-                    srcset="
-                      ./images/roxana-mobile1x.webp,
-                      images/roxana-mobile2x.webp
-                    "
-                  />
-                  <img
-                    class="last-image"
-                    src="images/roxana-mobile1x.webp"
-                    alt="roxana"
-                  />
-                </picture>
-                <section class="member-title">
-                  <h4 class="member-name">Roxana Larisa</h4>
-                  <span class="member-description">Frontend Developer</span>
-                </section>
-                <ul class="member-links">
-                  <li class="social-links">
-                    <a href="https://github.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-github"></use>
-                    </svg>
-                  </li>
-
-                  <li class="social-links">
-                    <a href="https://linkedin.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-linkedin"></use>
-                    </svg>
-                  </li>
-                </ul>
-              </li>
-              <li class="member-section">
-                <picture class="edit-img1">
-                  <source
-                    media="(min-width:1280px)"
-                    src="./images/seb-desktop1x.webp,
-                        images/seb-desktop2x.webp"
-                  />
-                  <source
-                    media="(min-width:768px)"
-                    srcset="
-                      ./images/seb-tablet1x.webp,
-                      images/seb-tablet2x.webp
-                    "
-                  />
-                  <source
-                    media="(max-width:320px)"
-                    srcset="
-                      ./images/seb-mobile1x.webp,
-                      images/seb-mobile2x.webp
-                    "
-                  />
-                  <img
-                    class="last-image"
-                    src="images/seb-mobile1x.webp"
-                    alt="seb"
-                  />
-                </picture>
-                <section class="member-title">
-                  <h4 class="member-name">Sebastian Dunduc</h4>
-                  <span class="member-description"> Frontend Developer</span>
-                </section>
-                <ul class="member-links">
-                  <li class="social-links">
-                    <a href="https://github.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-github"></use>
-                    </svg>
-                  </li>
-
-                  <li class="social-links">
-                    <a href="https://linkedin.com"> </a>
-                    <svg>
-                      <use href="./symbols.svg#icon-linkedin"></use>
-                    </svg>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </div>
+          <ul class="group-section">
+            <li class="member-section">
+              <picture class="edit-img">
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    images/alex-desktop1x.webp 1x,
+                    images/alex-desktop2x.webp 2x
+                  "
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    images/alex-tablet1x.webp 1x,
+                    images/alex-tablet2x.webp 2x
+                  "
+                />
+                <source
+                  media="(max-width:320px)"
+                  srcset="
+                    images/alex-mobile1x.webp 1x,
+                    images/alex-mobile2x.webp 2x
+                  "
+                />
+                <img
+                  class="last-image"
+                  src="./images/alex-mobile1x.webp"
+                  alt="alex"
+                />
+              </picture>
+              <section class="member-title1">
+                <h4 class="member-name">Nitu Alexandru</h4>
+                <span class="member-description">
+                  Team Leader, Frontend Developer</span
+                >
+              </section>
+              <ul class="member-links">
+                <li class="social-links">
+                  <a href="https://github.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-github"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-links">
+                  <a href="https://linkedin.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="member-section">
+              <picture class="edit-img">
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    ./images/robert-desktop1x.webp 1x,
+                    ./images/robert-desktop2x.webp 2x
+                  "
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    images/robert-tablet1x.webp 1x,
+                    images/robert-tablet2x.webp 2x
+                  "
+                />
+                <source
+                  media="(max-width:320px)"
+                  srcset="
+                    images/robert-mobile1x.webp 1x,
+                    images/robert-mobile2x.webp 2x
+                  "
+                />
+                <img
+                  class="last-image"
+                  src="images/robert-mobile1x.webp"
+                  alt="robert"
+                />
+              </picture>
+              <section class="member-title1">
+                <h4 class="member-name">Robert Sovar</h4>
+                <span class="member-description">
+                  Scrum Master, Frontend Developer</span
+                >
+              </section>
+              <ul class="member-links">
+                <li class="social-links">
+                  <a href="https://github.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-github"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-links">
+                  <a href="https://linkedin.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="member-section">
+              <picture class="edit-img1">
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    images/anatolii-desktop1x.webp 1x,
+                    images/anatolii-desktop2x.webp 2x
+                  "
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    images/anatolii-tablet1x.webp 1x,
+                    images/anatolii-tablet2x.webp 2x
+                  "
+                />
+                <source
+                  media="(max-width:320px)"
+                  srcset="
+                    images/anatolii-mobile1x.webp 1x,
+                    images/anatolii-mobile2x.webp 2x
+                  "
+                />
+                <img
+                  class="last-image"
+                  src="images/anatolii-mobile1x.webp"
+                  alt="Anatolii Boboc"
+                />
+              </picture>
+              <section class="member-title">
+                <h4 class="member-name">Anatolii Boboc</h4>
+                <span class="member-description">Frontend Developer</span>
+              </section>
+              <ul class="member-links">
+                <li class="social-links">
+                  <a href="https://github.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-github"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-links">
+                  <a href="https://linkedin.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="member-section">
+              <picture class="edit-img1">
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    images/ancuta-desktop1x.webp 1x,
+                    images/ancuta-desktop2x.webp 2x
+                  "
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    images/ancuta-tablet1x.webp 1x,
+                    images/ancuta-tablet2x.webp 2x
+                  "
+                />
+                <source
+                  media="(max-width:320px)"
+                  srcset="
+                    images/ancuta-mobile1x.webp 1x,
+                    images/ancuta-mobile2x.webp 2x
+                  "
+                />
+                <img
+                  class="last-image"
+                  src="images/ancuta-mobile1x.webp"
+                  alt="ancuta"
+                />
+              </picture>
+              <section class="member-title">
+                <h4 class="member-name">Ancuta Ureche</h4>
+                <span class="member-description"> Frontend Developer</span>
+              </section>
+              <ul class="member-links">
+                <li class="social-links">
+                  <a href="https://github.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-github"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-links">
+                  <a href="https://linkedin.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="member-section">
+              <picture class="edit-img1">
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    images/roxana-desktop1x.webp 1x,
+                    images/roxana-desktop2x.webp 2x
+                  "
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    images/roxana-tablet1x.webp 1x,
+                    images/roxana-tablet2x.webp 2x
+                  "
+                />
+                <source
+                  media="(max-width:320px)"
+                  srcset="
+                    images/roxana-mobile1x.webp 1x,
+                    images/roxana-mobile2x.webp 2x
+                  "
+                />
+                <img
+                  class="last-image"
+                  src="images/roxana-mobile1x.webp"
+                  alt="roxana"
+                />
+              </picture>
+              <section class="member-title">
+                <h4 class="member-name">Roxana Larisa</h4>
+                <span class="member-description">Frontend Developer</span>
+              </section>
+              <ul class="member-links">
+                <li class="social-links">
+                  <a href="https://github.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-github"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-links">
+                  <a href="https://linkedin.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="member-section">
+              <picture class="edit-img1">
+                <source
+                  media="(min-width:1280px)"
+                  srcset="
+                    images/seb-desktop1x.webp 1x,
+                    images/seb-desktop2x.webp 2x
+                  "
+                />
+                <source
+                  media="(min-width:768px)"
+                  srcset="
+                    images/seb-tablet1x.webp 1x,
+                    images/seb-tablet2x.webp 2x
+                  "
+                />
+                <source
+                  media="(max-width:320px)"
+                  srcset="
+                    images/seb-mobile1x.webp 1x,
+                    images/seb-mobile2x.webp 2x
+                  "
+                />
+                <img
+                  class="last-image"
+                  src="images/seb-mobile1x.webp"
+                  alt="seb"
+                />
+              </picture>
+              <section class="member-title">
+                <h4 class="member-name">Sebastian Dunduc</h4>
+                <span class="member-description"> Frontend Developer</span>
+              </section>
+              <ul class="member-links">
+                <li class="social-links">
+                  <a href="https://github.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-github"></use>
+                    </svg>
+                  </a>
+                </li>
+
+                <li class="social-links">
+                  <a href="https://linkedin.com">
+                    <svg>
+                      <use href="./icons/symbol-defs.svg#icon-linkedin"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>

@@ -1,8 +1,9 @@
-<<<<<<< Updated upstream
+
+
 // FT-05 Creează șablonul unui card de film - functie
 // FT-06 Creează containerul paginii principale pentru poziționarea
 // corectă a cardurilor de film (mobile, tablet, desktop) 
-=======
+
 import { genres } from './fetchGenres';
 import { openFilmModal } from './openFilmModal.js';
 
@@ -60,6 +61,7 @@ export async function createFilmCard(dataPromise) {
       typeof response.vote_average === 'number'
         ? response.vote_average.toFixed(2)
         : 'N/A';
+
     // Adaugare film in local storage la accesarea butonului
     movieElement.addEventListener('click', () => {
       openFilmModal(response);
@@ -81,6 +83,11 @@ export async function createFilmCard(dataPromise) {
     });
     
 
+
+
+    movieElement.addEventListener('click', () => openFilmModal(response));
+    
+
     // Construiește HTML-ul pentru cardul filmului/serialului
     movieElement.innerHTML = `
       <div class="movie-wrapper__card-img">
@@ -100,4 +107,4 @@ export async function createFilmCard(dataPromise) {
     movieCard.append(movieElement);
   });
 }
->>>>>>> Stashed changes
+

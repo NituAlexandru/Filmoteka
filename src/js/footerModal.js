@@ -1,37 +1,24 @@
-// FT - 23 Creează o fereastră modală(mobile, tablet, desktop) cu
-// informații despre membrii echipei tale, care se va deschide la click
-// pe textul "GoIT Students" din footer.
+// Obține elementele necesare
+const modal = document.getElementById('myFooterModal');
+const btn = document.getElementById('openFooterModal');
+const closeBtn = document.querySelector('.close-button-member');
 
-var modal = document.getElementById('myFooterModal');
-
-var btn = document.getElementById('openFooterModal');
-
-var span = document.getElementsByClassName('close-button-member')[0];
-
-btn.onclick = function () {
+// Funcție pentru a deschide fereastra modală
+function openModal() {
   modal.style.display = 'block';
-};
+}
 
-span.onclick = function () {
+// Funcție pentru a închide fereastra modală
+function closeModal() {
   modal.style.display = 'none';
-};
+  event.stopPropagation();
+}
 
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = 'none';
+btn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+// Închide fereastra modală dacă utilizatorul dă click în afara acesteia
+window.addEventListener('click', function (event) {
+  if (event.target === modal) {
+    closeModal();
   }
-};
-
-document
-  .querySelectorAll('.member-links .social-links')
-  .forEach(function (link) {
-    link.addEventListener('click', function () {
-      var svg = this.querySelector('svg');
-      svg.style.fill = 'white';
-    });
-
-    link.addEventListener('click', function (event) {
-      var link = this.querySelector('a').getAttribute('href');
-      window.location.href = link;
-    });
-  });
+});
