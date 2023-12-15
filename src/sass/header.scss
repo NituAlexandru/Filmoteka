@@ -4,7 +4,9 @@ ul {
 .header-container {
   padding: 20px;
 }
-
+.dark-mode {
+  background-color: rgb(18, 18, 18);
+  color: white;}
 .light-mode{ width: 73px;
   height: 64px;
   position: fixed;
