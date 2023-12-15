@@ -1,24 +1,12 @@
-<!-- Start with Mobile first -> Tablet -> Desktop 
-Breakpoints 480px - 768px - 1280px-->
-
-<!-- FT-04 Creaază footer-ul (mobile, tablet, desktop) (același pentru două pagini)  -->
-
-<!-- Cand dai click pe "by GoIT Students" se deschide o fereastra modala
-- vezi video din Trello -->
-<!-- FT-23 
-Creează o fereastră modală (mobile, tablet, desktop) cu informații 
-despre membrii echipei tale,
-care se va deschide la click pe textul "GoIT Students" din footer. -->
-
-<footer id="openFooterModal">
+<footer >
   <div class="footer-container">
-    <p class="rights-reserved">© 2023 | All Rights Reserved | Developed with</p>
+    <p class="rights-reserved">© <span id="current-year"></span> | All Rights Reserved | Developed with</p>
     <div class="text-direction">
       <svg class="heart">
         <use href="./icons/symbol-defs.svg#icon-heart"></use>
       </svg>
       <!-- Open Modal -->
-      <p class="students">by GoIT Students</p>
+      <p class="students" id="openFooterModal">by GoIT Students</p>
       <div id="myFooterModal" class="footer-modal">
         <!-- Modal content -->
         <div class="footer-modal-content">
