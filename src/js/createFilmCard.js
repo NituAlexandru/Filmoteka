@@ -1,5 +1,7 @@
 import { genres } from './fetchGenres';
 import { openFilmModal } from './openFilmModal.js';
+import { setToWatchedList } from './setToWatched.js';
+import { setToQueueList } from './setToQueue.js';
 
 export async function createFilmCard(dataPromise) {
   const movieCard = document.querySelector('.movie-wrapper');
@@ -57,7 +59,7 @@ export async function createFilmCard(dataPromise) {
         : 'N/A';
 
     movieElement.addEventListener('click', () => openFilmModal(response));
-    
+
     // Construiește HTML-ul pentru cardul filmului/serialului
     movieElement.innerHTML = `
       <div class="movie-wrapper__card-img">
@@ -75,5 +77,27 @@ export async function createFilmCard(dataPromise) {
 
     // Adaugă elementul creat în containerul principal
     movieCard.append(movieElement);
+
+    movieElement.addEventListener('click', () => {
+      const existingModal = document.querySelector('.film-modal');
+      if (existingModal) {
+        existingModal.remove();
+      }
+      openFilmModal(response);
+
+      // După deschiderea ferestrei modale, atașăm evenimente butoanelor
+      setTimeout(() => {
+        const setToWatchedBtn = document.getElementById('setToWatchedBtn');
+        const setToQueueBtn = document.getElementById('setToQueueBtn');
+
+        const modal = document.querySelector('.film-modal');
+        const modalContent = document.querySelector('.film-modal-content');
+        modal.addEventListener('click', event => {
+          if (event.target === modal || event.target === modalContent) {
+            modal.remove();
+          }
+        });
+      }, 0);
+    });
   });
 }

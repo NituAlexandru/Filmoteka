@@ -1,49 +1,60 @@
 <header class="header-home">
-  <div class="container-nav">
-    <nav>
-      <ul class="site-nav-list">
-        <li class="site-nav-item">
-          <button
-            class="site-nav-button home-btn"
-            data-request="Home"
-            aria-label="home"
-          >
-            Home
-          </button>
-        </li>
-        <li class="site-nav-item">
-          <button
-            class="site-nav-button"
-            data-request="library"
-            aria-label="my library"
-          >
-            My library
-          </button>
-        </li>
-      </ul>
-    </nav>
-
-    <form class="search-form">
-      <input
-        id="searchInput"
-        type="text"
-        class="search-form-input"
-        name="searchQuery"
-        placeholder="Movie Search"
-        aria-label="movie search"
-        autocomplete="off"
-      />
-      <button type="submit" class="search-form-button" aria-label="search">
-        <svg class="icon-search" width="14" height="14">
-          <use href="./icons/symbol-defs.svg#icon-search"></use>
-        </svg>
-      </button>
-    </form>
-  </div>
+  <nav class="site-navigation">
+    <ul class="site-nav-list">
+      <li class="site-nav-item">
+        <button
+          class="site-nav-button home-btn"
+          data-request="Home"
+          aria-label="home"
+        >
+          Home
+        </button>
+      </li>
+      <li class="site-nav-item">
+        <button
+          class="site-nav-button"
+          data-request="library"
+          aria-label="my library"
+        >
+          My library
+        </button>
+      </li>
+    </ul>
+    <ul class="watched-queue-container">
+      <li>
+        <button
+          class="site-nav-button watched-btn"
+          data-request="watched"
+          aria-label="watched"
+        >
+          Watched
+        </button>
+      </li>
+      <li>
+        <button
+          class="site-nav-button queue-btn"
+          data-request="queue"
+          aria-label="queue"
+        >
+          queue
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <form class="search-form">
+    <input
+      id="searchInput"
+      type="text"
+      class="search-form-input"
+      name="searchQuery"
+      placeholder="Movie Search"
+      aria-label="movie search"
+      autocomplete="off"
+    />
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </form>
   <div class="logo-container">
-    <svg class="header-logo" width="32" height="32">
-      <use href="/src/icons/symbol-defs.svg#icon-film"></use>
-    </svg>
-    <h1 class="title">Filmoteka</h1>
+    <a href="./index.html"><i class="fas fa-film film-icon"></i></a>
+    <a href="./index.html"><h1 class="title">Filmoteka</h1></a>
   </div>
 </header>

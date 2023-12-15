@@ -1,3 +1,4 @@
+
 import { fetchMovies } from './js/fetchMovies.js';
 import { createFilmCard } from './js/createFilmCard.js';
 import { searchForm } from './js/searchForm.js';
