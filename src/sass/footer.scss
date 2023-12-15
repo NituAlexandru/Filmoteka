@@ -9,7 +9,6 @@
   text-align: center;
   font-family: Roboto;
   font-size: 14px;
-  
 }
 
 footer {
@@ -27,8 +26,8 @@ footer {
 
 .heart {
   color: #b92f2c;
-  width: 50px; /* Simplificat */
-  height: 25.76px; /* Simplificat */
+  width: 50px;
+  height: 25.76px;
   flex-shrink: 0;
   animation: pulse 1.5s infinite ease-in-out;
 }
@@ -57,7 +56,7 @@ footer {
 .footer-modal {
   display: none;
   position: fixed;
-  z-index: 1000; /* Îmbunătățit */
+  z-index: 12;
   left: 0;
   top: 0;
   width: 100%;
@@ -73,6 +72,7 @@ footer {
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 80%;
   transform: translate(-50%, -50%);
   max-height: 80vh;
   max-width: 600px;
@@ -111,6 +111,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 0;
 }
 .member-section {
   background-color: rgb(185, 47, 44, 0.5);
@@ -147,18 +148,22 @@ footer {
 .member-section:hover .member-name {
   color: #b92f2c;
 }
+.member-section:hover .social-links a {
+  fill: #b92f2c;
+}
 .member-links svg {
   width: 30px;
   height: 30px;
   transition: fill 0.5s;
 }
 
-.member-links .social-links {
+.member-links .social-links a {
   cursor: pointer;
+  fill: white;
 }
 
 .member-links svg:hover {
-  fill: #b92f2c;
+  fill: black;
 }
 .member-section {
   /* stiluri existente */
@@ -166,13 +171,13 @@ footer {
 }
 
 .member-section:hover {
-  box-shadow: 0 0 15px 10px rgba(185, 47, 44, 0.5); /* culoarea și dimensiunea umbrei */
-  transform: scale(1.05); /* ușoară mărire pentru a sublinia efectul */
+  box-shadow: 0 0 15px 10px rgba(185, 47, 44, 0.5);
+  transform: scale(1.05);
 }
 
 .footer-modal-title:hover:after {
   left: 100%;
-  transform: skewX(30deg) skewY(30deg);
+  transform: skewX(50deg) skewY(10deg);
 }
 
 .footer-modal-title:before,
@@ -182,19 +187,18 @@ footer {
   top: 0;
   width: 100%;
   height: 200%;
-  background: rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.3);
   transition: 0.9s;
   pointer-events: none;
 }
 
 .footer-modal-title:before {
-  left: -100%;
+  left: -500%;
 }
 
 .footer-modal-title:after {
-  right: -100%;
+  right: -400%;
 }
-
 
 // media q -------------------------
 
@@ -202,16 +206,55 @@ footer {
   .footer-modal-content {
     width: 90%;
   }
+  .member-section {
+    padding: 0;
+  }
   .member-name {
-    font-size: 14px;
+    font-size: 12px;
   }
   .member-description {
     font-size: 12px;
   }
+  .member-name {
+    margin: 0;
+  }
+  .member-description {
+    line-height: 50%;
+  }
 }
 
 @media (min-width: 768px) {
+  .group-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .title-btn-container {
+    margin-bottom: 50px;
+  }
+  .footer-modal-title {
+    font-size: 28px;
+  }
+  .footer-modal-content {
+    max-width: 800px;
+    height: 500px;
+  }
+  .member-section {
+    height: auto;
+  }
+  .member-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @media (min-width: 1280px) {
+  .group-section {
+    gap: 30px;
+  }
+
+  .footer-modal-content {
+    max-width: 1000px;
+  }
 }
