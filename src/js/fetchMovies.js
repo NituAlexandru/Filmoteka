@@ -36,6 +36,7 @@ export async function fetchMovies(searchQuery = '', page = 1) {
 
   try {
     const response = await axios.get(url);
+    
     const moviesWithTrailers = await Promise.all(
       response.data.results.map(async movie => {
         try {
@@ -46,6 +47,7 @@ export async function fetchMovies(searchQuery = '', page = 1) {
         }
       })
     );
+
     // console.dir(response.data);
     return { ...response.data, results: moviesWithTrailers };
   } catch (error) {

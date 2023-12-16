@@ -1,6 +1,3 @@
-// FT-10 Realizează căutarea și afișarea filmelor după cuvinte cheie
-// vezi mesajele de eroare din macheta
-// foloseste Notliflix pentru afisare mesaje/alerte/notificari
 
 import { fetchMovies } from './fetchMovies';
 import { createFilmCard } from './createFilmCard';

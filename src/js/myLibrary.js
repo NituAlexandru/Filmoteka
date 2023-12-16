@@ -1,3 +1,4 @@
+
 export function setupMyLibraryLink() {
   const myLibraryLink = document.querySelector('a[data-request="library"]');
 
@@ -6,9 +7,7 @@ export function setupMyLibraryLink() {
       event.preventDefault();
 
       // selecteaza elementele care se vor goli
-      const gallery = document.querySelector('.gallery');
       const watched = document.querySelector('.watched');
-      const queue = document.querySelector('.queue');
       const movie = document.querySelector('.movie');
       const paginationContainer = document.getElementById(
         'pagination-container'
@@ -23,9 +22,7 @@ export function setupMyLibraryLink() {
       );
 
       // goleste conținutul acestor elemente
-      if (gallery) gallery.innerHTML = '';
       if (watched) watched.innerHTML = '';
-      if (queue) queue.innerHTML = '';
       if (movie) movie.innerHTML = '';
       if (paginationContainer) {
         paginationContainer.style.display = 'none';
@@ -36,7 +33,7 @@ export function setupMyLibraryLink() {
       if (myLibraryBtn) {
         myLibraryBtn.style.display = 'none';
       }
-      
+
       watchedQueueContainers.forEach(container => {
         container.style.display = 'flex';
       });
@@ -44,6 +41,11 @@ export function setupMyLibraryLink() {
         button.style.display = 'flex';
       });
 
+
+
+
+
+      
       // Setează înălțimea minimă pentru containerul principal
       let headerHeight = 0;
       let footerHeight = 0;
