@@ -129,3 +129,18 @@ body.dark-theme {
   --background-color-light: #000000; /* fundal pentru tema Dark */
   --text-color-light: #ffffff; /* text pentru tema Dark */
 }
+
+
+.dark {
+  background-color: #393646;
+}
+
+.btn-dark {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  img {
+      width: 30px;
+      height: auto;
+  }
+}
