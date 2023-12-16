@@ -1,7 +1,5 @@
 import { genres } from './fetchGenres';
 import { openFilmModal } from './openFilmModal.js';
-import { setToWatchedList } from './setToWatched.js';
-import { setToQueueList } from './setToQueue.js';
 
 export async function createFilmCard(dataPromise) {
   const movieCard = document.querySelector('.movie-wrapper');
@@ -10,10 +8,9 @@ export async function createFilmCard(dataPromise) {
   movieCard.textContent = '';
 
   if (!data || !data.results) {
-    console
-      .error
-      // 'Datele nu sunt disponibile sau nu au proprietatea "results".'
-      ();
+    console.error(
+      'Datele nu sunt disponibile sau nu au proprietatea "results".'
+    );
     return;
   }
 
@@ -23,29 +20,30 @@ export async function createFilmCard(dataPromise) {
     movieElement.classList.add('movie-wrapper__card');
 
     // Determină titlul: folosește 'name' pentru seriale și 'original_title' pentru filme
-    let title = 'Unknown';
-    if (response.media_type === 'tv') {
-      title = response.name || response.original_name || 'Unknown';
-    } else if (response.media_type === 'movie') {
-      title = response.title || response.original_title || 'Unknown';
-    }
+    let title = response.title || response.name || 'Unknown Title';
+
+   if (response.media_type === 'tv') {
+  title = response.original_name || response.name || response.title || 'Unknown Title';
+} else if (response.media_type === 'movie') {
+  title = response.original_title || response.title || 'Unknown Title';
+}
 
     // Mapează ID-urile genurilor la numele lor, folosind lista de genuri încărcată
     const genreNames = response.genre_ids
       .map(id => {
         const genre = genres.find(genre => genre.id === id);
-        return genre ? genre.name : 'Unknown';
+        return genre ? genre.name : null;
       })
-      .filter(name => name !== 'Unknown')
+      .filter(name => name !== null)
       .join(', ');
-    // console.log(genres);
+    //  console.log(genres);
     if (genreNames.includes('Unknown')) {
       console.log('ID-uri genuri necunoscute:', response.genre_ids);
       console.log('Lista de genuri disponibile:', genres);
     }
 
     // Determină anul de lansare
-    let releaseYear = 'N/A';
+    let releaseYear = response.release_date?.split('-')[0] || 'N/A';
     if (response.media_type === 'movie' && response.release_date) {
       releaseYear = response.release_date.split('-')[0];
     } else if (response.media_type === 'tv' && response.first_air_date) {
@@ -58,12 +56,16 @@ export async function createFilmCard(dataPromise) {
         ? response.vote_average.toFixed(2)
         : 'N/A';
 
+    const posterPath = response.poster_path
+      ? `https://image.tmdb.org/t/p/w500${response.poster_path}`
+      : 'path/to/default/image.jpg';
+
     movieElement.addEventListener('click', () => openFilmModal(response));
 
     // Construiește HTML-ul pentru cardul filmului/serialului
     movieElement.innerHTML = `
       <div class="movie-wrapper__card-img">
-        <img src="https://image.tmdb.org/t/p/w500${response.poster_path}" alt="${title}">
+        <img src="${posterPath}" alt="${title}">
       <span class="movie-wrapper__info-rating">${rating}</span>
         </div>
       <div class="movie-wrapper__footer">
