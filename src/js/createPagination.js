@@ -1,9 +1,7 @@
-
-import 'bootstrap/dist/css/bootstrap.min.css'; // Adaugă această linie pentru a importa stilurile Bootstrap
 import { createFilmCard } from './createFilmCard.js';
-import {fetchMovies } from './fetchMovies.js';
+import { fetchMovies } from './fetchMovies.js';
 
-const totalPagesToShow = 10;
+const totalPagesToShow = 6; // Modificare la 6 pagini afișate
 let currentPage = 1;
 let prevPageSet = 4;
 
@@ -29,9 +27,13 @@ export function createPagination(movies, searchQuery) {
         prevPageLink.href = '#';
         prevPageLink.innerHTML = '&laquo;';
         prevPageLink.addEventListener('click', async () => {
-          const prevPage = currentPage > 1 ? currentPage - 1 : 1;
-          const moviesByPage = await fetchMovies(searchQuery, prevPage);
-          createPagination(moviesByPage, searchQuery);
+          const prevPage = Math.max(1, currentPage - totalPagesToShow + 1);
+
+          if (prevPage !== currentPage) {
+            currentPage = prevPage;
+            const moviesByPage = await fetchMovies(searchQuery, prevPage);
+            createPagination(moviesByPage, searchQuery);
+          }
         });
 
         prevPageItem.appendChild(prevPageLink);
@@ -53,9 +55,29 @@ export function createPagination(movies, searchQuery) {
           pageLink.classList.add('page-link');
           pageLink.href = '#';
           pageLink.textContent = i;
-          pageLink.addEventListener('click', async () => {
+
+          pageLink.addEventListener('click', async event => {
             try {
               const moviesByPage = await fetchMovies(searchQuery, i);
+
+              // Găsește pagina activă folosind funcția separată
+              const activePageItem = findActivePage(
+                paginationContainer,
+                event.target
+              );
+
+              // Elimină clasa "active" de la toate paginile
+              document
+                .querySelectorAll('.pagination .page-item')
+                .forEach(item => {
+                  item.classList.remove('active');
+                });
+
+              // Adaugă clasa "active" doar pentru pagina curentă
+              if (activePageItem) {
+                activePageItem.classList.add('active');
+              }
+
               createPagination(moviesByPage, searchQuery);
             } catch (error) {
               console.error('Eroare la încărcarea paginii:', error);
@@ -65,6 +87,7 @@ export function createPagination(movies, searchQuery) {
           pageItem.appendChild(pageLink);
           pageList.appendChild(pageItem);
         }
+
         const nextPageSetItem = document.createElement('li');
         nextPageSetItem.classList.add('page-item');
 
@@ -75,7 +98,7 @@ export function createPagination(movies, searchQuery) {
         nextPageSetLink.addEventListener('click', async () => {
           const nextSetPage = Math.min(
             movies.total_pages,
-            currentPage + Math.floor(totalPagesToShow - prevPageSet)
+            currentPage + totalPagesToShow
           );
 
           currentPage = nextSetPage;
@@ -93,4 +116,8 @@ export function createPagination(movies, searchQuery) {
       console.error(error);
     }
   });
-};
+}
+
+function findActivePage(container, target) {
+  return target.closest('.page-item');
+}
