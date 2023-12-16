@@ -72,14 +72,20 @@ div a {
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
 }
 .site-nav-button:hover {
   background-color: #000;
   border: 1px solid #fff;
   color: #b92f2c;
+  text-decoration: underline;
 }
+
 .watched-queue-container {
+  flex-direction: column;
   justify-content: center;
+  gap: 5px;
 }
 .search-form-input {
   border-radius: 100px;
@@ -117,7 +123,7 @@ div a {
   align-items: center;
   width: 250px;
   align-self: center;
-  justify-content: center;  
+  justify-content: center;
   z-index: 2;
 }
 .fa-search {
@@ -129,7 +135,6 @@ div a {
   cursor: pointer;
   right: 0;
   z-index: 3;
- 
 }
 
 .logo-container {
@@ -172,6 +177,7 @@ div a {
     padding: 0;
     margin: 0;
   }
+
   .search-form {
     width: 150px;
   }
@@ -182,7 +188,7 @@ div a {
     font-size: 30px;
   }
 }
-@media (max-width: 560px) {
+@media (max-width: 768px) {
   .site-navigation {
     display: flex;
     flex-direction: column;
@@ -215,7 +221,10 @@ div a {
     padding-right: 0;
     font-size: 28px;
   }
-
+  .watched-queue-container {
+    flex-direction: row;
+    justify-content: center;
+  }
   .search-form {
     width: 320px;
   }

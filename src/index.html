@@ -18,15 +18,17 @@
   </head>
   <body>
     <include src="./partials/header.html"></include>
-    <div class="gallery"></div>
+ 
     <div class="watched"></div>
     <div class="queue"></div>
-    <section class="movie">
+    <main class="movie">
       <div class="container">
         <div class="movie-wrapper"></div>
       </div>
-    </section>
-    <include src="./partials/pagination.html"></include>
+    </main>
+    <div id="pagination-container">
+      <include src="./partials/pagination.html"></include>
+    </div>
     <include src="./partials/footer.html"></include>
     <include src="./partials/film-modal.html"></include>
     <script type="module" src="./index.js"></script>
