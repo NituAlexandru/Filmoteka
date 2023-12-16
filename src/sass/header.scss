@@ -10,7 +10,9 @@ ul {
 div a {
   text-decoration: none;
 }
-
+.watched-queue-container .site-nav-button {
+  display: none;
+}
 .header-home {
   position: relative;
   background-repeat: no-repeat;
