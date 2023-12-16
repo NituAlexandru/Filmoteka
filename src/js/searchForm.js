@@ -2,9 +2,9 @@
 // vezi mesajele de eroare din macheta
 // foloseste Notliflix pentru afisare mesaje/alerte/notificari
 
-import Notiflix from 'notiflix';
 import { fetchMovies } from './fetchMovies';
 import { createFilmCard } from './createFilmCard';
+import { createPagination } from './createPagination';
 
 let searchQuery = '';
 
@@ -16,7 +16,10 @@ searchForm.addEventListener('submit', async (e) => {
 
   try {
     const moviesData = await fetchMovies(searchQuery);
+    const totalPages = 1;
     createFilmCard(moviesData);
+    createPagination(moviesData,totalPages);
+    searchForm.reset();
     console.log('Filme gasite', moviesData);
   } catch (error) {
     console.error(
