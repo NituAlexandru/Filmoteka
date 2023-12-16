@@ -1,10 +1,7 @@
-import axios from 'axios';
-import Notiflix from 'notiflix';
+
 import 'bootstrap/dist/css/bootstrap.min.css'; // Adaugă această linie pentru a importa stilurile Bootstrap
 import { createFilmCard } from './createFilmCard.js';
-import { API_KEY, fetchMovies } from './fetchMovies.js';
-import { BASE_URL } from './fetchMovies.js';
-import { fetchMovieTrailer } from './fetchMovies.js';
+import {fetchMovies } from './fetchMovies.js';
 
 const totalPagesToShow = 10;
 let currentPage = 1;
@@ -97,15 +94,3 @@ export function createPagination(movies, searchQuery) {
     }
   });
 };
-
-// Evenimentul de încărcare al ferestrei
-window.addEventListener('load', async () => {
-  try {
-    const popularMovies = await fetchMovies();
-    createPagination(popularMovies);
-    console.log('Filme populare:', popularMovies);
-    // ... (cod suplimentar pentru afișarea filmelor populare)
-  } catch (error) {
-    console.error('Eroare la încărcarea filmelor populare:', error);
-  }
-});
