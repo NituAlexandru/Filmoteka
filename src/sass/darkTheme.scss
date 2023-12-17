@@ -71,14 +71,25 @@ body.darkmode .close-modal {
 .dark-mode-toggle {
   position: absolute;
   z-index: 10;
-  bottom: 50%;
-  left: 3%;
-  color: var(--clr-white);
-  border: 2px solid currentColor;
+  bottom: 5%;
+  right: 50%;
+  color: var(--background);
   padding: 4px;
   background: transparent;
   cursor: pointer;
-  border-radius: 5px;
   width: 40px;
   height: 40px;
+  border: none;
+}
+.dark-mode-toggle .fas.fa-sun {
+  color: var(--clr-white);
+  border: 2px solid var(--clr-white);
+  border-radius: 50%;
+  padding: 10px;
+}
+.dark-mode-toggle .fas.fa-moon {
+  color: var(--background);
+  border: 2px solid var(--background);
+  border-radius: 50%;
+  padding: 10px;
 }
