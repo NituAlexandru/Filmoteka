@@ -12,8 +12,8 @@ const enableDarkMode = () => {
 const disableDarkMode = () => {
   document.body.classList.remove('darkmode'); // 1. Remove the class from the body
   localStorage.setItem('darkMode', null); // 2. Update darkMode in localStorage
-   darkModeIcon.classList.remove('fa-moon');
-   darkModeIcon.classList.add('fa-sun');
+  darkModeIcon.classList.remove('fa-moon');
+  darkModeIcon.classList.add('fa-sun');
 };
 
 // If the user already visited and enabled darkMode
