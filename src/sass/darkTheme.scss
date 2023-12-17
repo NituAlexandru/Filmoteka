@@ -67,7 +67,15 @@ body.darkmode .film-modal-content {
 body.darkmode .close-modal {
   color: var(--clr-white);
 }
-
+body.darkmode #scrollToTopBtn {
+  background-color: var(--clr-white);
+}
+body.darkmode .fas.fa-arrow-up {
+  color: #b92f2c;
+}
+body.darkmode #scrollToTopBtn:hover {
+  box-shadow: 4px 5px 10px var(--clr-white);
+}
 .dark-mode-toggle {
   position: absolute;
   z-index: 10;
@@ -93,6 +101,7 @@ body.darkmode .close-modal {
   border-radius: 50%;
   padding: 10px;
 }
+
 /* Pentru tot conținutul paginii */
 html {
   scrollbar-color: var(--clr-primary) var(--background); /* Pentru Firefox, culoarea bară și culoarea fundalului scrollbar-ului */
@@ -115,6 +124,6 @@ body::-webkit-scrollbar-thumb {
     rgba(176, 48, 57, 1) 47%,
     rgba(163, 12, 23, 1) 76%
   );
-  border-radius: 20px; 
-  border: 3px solid var(--background); 
+  border-radius: 20px;
+  border: 3px solid var(--background);
 }

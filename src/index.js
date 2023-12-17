@@ -33,3 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 import { darkmode } from './js/darkTheme.js';
 darkmode();
+
+import { scrollFunction, backToTop } from './js/scrollToTopBtn.js';
+scrollFunction();
+backToTop();
