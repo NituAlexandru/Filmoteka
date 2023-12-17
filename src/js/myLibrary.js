@@ -1,3 +1,5 @@
+import { getFromStorage } from './setGetLocalStorage';
+
 export function setupMyLibraryLink() {
   const myLibraryLink = document.querySelector('a[data-request="library"]');
 
@@ -42,11 +44,8 @@ export function setupMyLibraryLink() {
       const queueDiv = document.querySelector('.queue');
       if (queueDiv) {
         // Adăugați conținutul dorit în div-ul queue
-        queueDiv.innerHTML = 'Conținutul dorit aici'; // înlocuiți cu conținutul real
-      
-      
-      
-      
+        queueDiv.innerHTML = getFromStorage();
+        ('Conținutul dorit aici'); // înlocuiți cu conținutul real
       }
 
       // ------------------------------------------------------------

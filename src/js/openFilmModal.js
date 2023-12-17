@@ -1,6 +1,8 @@
 import { genres } from './fetchGenres';
+import { addToStorage } from './setGetLocalStorage';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 export const openFilmModal = filmData => {
   // Determinați numele genurilor
@@ -80,6 +82,14 @@ export const openFilmModal = filmData => {
     if (event.key === 'Escape') {
       modal.remove();
       console.log('Tasta Escape a fost apăsată!');
+    }
+  });
+// -------------------------------Add to Local Storage ------------
+  document.body.addEventListener('click', event => {
+    if (event.target.id === 'addToQueueBtn') {
+      // Adăugați modalHtml în localStorage
+      addToStorage(filmData.title || filmData.name, filmData.id);
+      console.log('Modalul a fost adăugat în localStorage');
     }
   });
 };
