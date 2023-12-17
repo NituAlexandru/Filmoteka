@@ -75,4 +75,11 @@ export const openFilmModal = filmData => {
       modal.remove();
     }
   });
+  // Funcție pentru a gestiona apăsarea tastei Escape
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      modal.remove();
+      console.log('Tasta Escape a fost apăsată!');
+    }
+  });
 };

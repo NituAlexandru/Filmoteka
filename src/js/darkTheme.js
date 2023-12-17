@@ -1,4 +1,4 @@
-let darkMode = localStorage.getItem('darkMode'); // check for saved 'darkMode' in localStorage
+export let darkMode = localStorage.getItem('darkMode'); // check for saved 'darkMode' in localStorage
 const darkModeToggle = document.querySelector('#dark-mode-toggle');
 const darkModeIcon = document.querySelector('#dark-mode-icon');
 
