@@ -1,4 +1,7 @@
+import { fetchMovieTrailer } from './js/fetchMovies.js';
+fetchMovieTrailer();
 import { fetchMovies } from './js/fetchMovies.js';
+fetchMovies();
 import { createFilmCard } from './js/createFilmCard.js';
 createFilmCard();
 
@@ -8,9 +11,9 @@ window.addEventListener('load', async () => {
     const popularMovies = await fetchMovies();
     createPagination(popularMovies);
 
-    console.log('Filme populare:', popularMovies);
+    // console.log('Filme populare:', popularMovies);
   } catch (error) {
-    console.error('Eroare la încărcarea filmelor populare:', error);
+    // console.error('Eroare la încărcarea filmelor populare:', error);
   }
 });
 

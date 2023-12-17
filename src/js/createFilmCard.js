@@ -1,5 +1,6 @@
 import { genres } from './fetchGenres';
 import { openFilmModal } from './openFilmModal.js';
+import { fetchMovies } from './fetchMovies.js';
 
 export async function createFilmCard(dataPromise) {
   const movieCard = document.querySelector('.movie-wrapper');
@@ -8,9 +9,9 @@ export async function createFilmCard(dataPromise) {
   movieCard.textContent = '';
 
   if (!data || !data.results) {
-    console.error(
-      'Datele nu sunt disponibile sau nu au proprietatea "results".'
-    );
+    // console.error(
+    //   'Datele nu sunt disponibile sau nu au proprietatea "results".'
+    // );
     return;
   }
 
@@ -22,11 +23,11 @@ export async function createFilmCard(dataPromise) {
     // Determină titlul: folosește 'name' pentru seriale și 'original_title' pentru filme
     let title = response.title || response.name || 'Unknown Title';
 
-   if (response.media_type === 'tv') {
-  title = response.original_name || response.name || response.title || 'Unknown Title';
-} else if (response.media_type === 'movie') {
-  title = response.original_title || response.title || 'Unknown Title';
-}
+    if (response.media_type === 'tv') {
+      title = response.name || response.original_name || 'Unknown Title';
+    } else if (response.media_type === 'movie') {
+      title = response.title || response.original_title || 'Unknown Title';
+    }
 
     // Mapează ID-urile genurilor la numele lor, folosind lista de genuri încărcată
     const genreNames = response.genre_ids
@@ -43,11 +44,18 @@ export async function createFilmCard(dataPromise) {
     }
 
     // Determină anul de lansare
-    let releaseYear = response.release_date?.split('-')[0] || 'N/A';
-    if (response.media_type === 'movie' && response.release_date) {
-      releaseYear = response.release_date.split('-')[0];
-    } else if (response.media_type === 'tv' && response.first_air_date) {
-      releaseYear = response.first_air_date.split('-')[0];
+    let releaseYear;
+
+    if (response.media_type === 'movie') {
+      releaseYear = response.release_date
+        ? response.release_date.split('-')[0]
+        : 'Unknown Year';
+    } else if (response.media_type === 'tv') {
+      releaseYear = response.first_air_date
+        ? response.first_air_date.split('-')[0]
+        : 'Unknown Year';
+    } else {
+      releaseYear = 'Unknown Year';
     }
 
     // Formatează rating-ul pentru a afișa doar două zecimale
@@ -87,19 +95,6 @@ export async function createFilmCard(dataPromise) {
       }
       openFilmModal(response);
 
-      // După deschiderea ferestrei modale, atașăm evenimente butoanelor
-      setTimeout(() => {
-        const setToWatchedBtn = document.getElementById('setToWatchedBtn');
-        const setToQueueBtn = document.getElementById('setToQueueBtn');
-
-        const modal = document.querySelector('.film-modal');
-        const modalContent = document.querySelector('.film-modal-content');
-        modal.addEventListener('click', event => {
-          if (event.target === modal || event.target === modalContent) {
-            modal.remove();
-          }
-        });
-      }, 0);
     });
   });
 }

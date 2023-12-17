@@ -1,5 +1,3 @@
-
-
 import { genres } from './fetchGenres';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -13,6 +11,16 @@ export const openFilmModal = filmData => {
     })
     .filter(name => name !== 'Unknown')
     .join(', ');
+
+  let originalTitle;
+
+  if (filmData.media_type === 'movie') {
+    originalTitle = filmData.original_title || filmData.title;
+  } else if (filmData.media_type === 'tv') {
+    originalTitle = filmData.original_name || filmData.name;
+  } else {
+    originalTitle = filmData.title || 'Unknown Title';
+  }
 
   // Construiți HTML-ul pentru fereastra modală
   const modalHtml = `
@@ -32,7 +40,7 @@ export const openFilmModal = filmData => {
                 </div>`
         }
        
-        <h3>Original title: ${filmData.original_title}</h3>
+        <h3>Original title: ${originalTitle}</h3>
         <p class="film-modal-score"><span>Score: ${
           typeof filmData.vote_average === 'number'
             ? filmData.vote_average.toFixed(2)

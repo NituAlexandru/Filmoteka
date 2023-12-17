@@ -9,6 +9,7 @@ export async function fetchMovieTrailer(movieId) {
   try {
     const response = await axios.get(trailerUrl);
     const trailers = response.data.results;
+
     const youtubeTrailer = trailers.find(
       trailer => trailer.site === 'YouTube' && trailer.type === 'Trailer'
     );
@@ -17,9 +18,6 @@ export async function fetchMovieTrailer(movieId) {
       ? `https://www.youtube.com/embed/${youtubeTrailer.key}?autoplay=1`
       : null;
   } catch (error) {
-    if (error.response && error.response.status === 404) {
-      return null;
-    }
     return null;
   }
 }
@@ -36,7 +34,7 @@ export async function fetchMovies(searchQuery = '', page = 1) {
 
   try {
     const response = await axios.get(url);
-    
+
     const moviesWithTrailers = await Promise.all(
       response.data.results.map(async movie => {
         try {
