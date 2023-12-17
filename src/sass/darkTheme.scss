@@ -7,7 +7,7 @@
 :root {
   --clr-light: #f5e8e8;
   --clr-dark: #b92f2c;
-  --clr-primary: #18c944;
+  --clr-primary: #c96818;
   --clr-secondary: #631918;
   --clr-white: #fff;
 
@@ -92,4 +92,29 @@ body.darkmode .close-modal {
   border: 2px solid var(--background);
   border-radius: 50%;
   padding: 10px;
+}
+/* Pentru tot conținutul paginii */
+html {
+  scrollbar-color: var(--clr-primary) var(--background); /* Pentru Firefox, culoarea bară și culoarea fundalului scrollbar-ului */
+}
+
+body::-webkit-scrollbar {
+  width: 20px;
+}
+
+body.darkmode body::-webkit-scrollbar-track {
+  background: #b92f2c;
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(217, 44, 17);
+  background: radial-gradient(
+    circle,
+    rgba(217, 44, 17, 1) 20%,
+    rgba(176, 48, 57, 1) 47%,
+    rgba(163, 12, 23, 1) 76%
+  );
+  border-radius: 20px; 
+  border: 3px solid var(--background); 
 }
