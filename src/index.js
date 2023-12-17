@@ -31,4 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMyLibraryLink();
 });
 
-
+import { darkmode } from './js/darkTheme.js';
+darkmode();

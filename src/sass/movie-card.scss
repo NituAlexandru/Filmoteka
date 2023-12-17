@@ -18,6 +18,7 @@
   margin: 0 auto;
   padding: 32px;
   height: 100%;
+  background-color: #f5e8e8;
 }
 
 .movie-wrapper {
@@ -27,6 +28,7 @@
   justify-content: center;
   padding: 20px;
   background-color: var(--background-color-light);
+  background-color: #f5e8e8;
 }
 
 .movie-wrapper__card {
@@ -40,12 +42,14 @@
   width: 280px;
   height: auto;
   position: relative;
+  background-color: #f5e8e8;
 }
 
 .movie-wrapper__card:hover {
   border: 1px solid var(--border-hover-color);
   box-shadow: 0 6px 22px var(--border-hover-color);
   scale: 1.02;
+  background-color: #f5e8e8;
 }
 
 .movie-wrapper__card-img img {
@@ -84,7 +88,6 @@
   position: absolute;
   left: 5%;
   top: 5%;
-  
 }
 
 /* Media query pentru tablete (min-width: 768px) */
@@ -130,7 +133,6 @@ body.dark-theme {
   --text-color-light: #ffffff; /* text pentru tema Dark */
 }
 
-
 .dark {
   background-color: #393646;
 }
@@ -140,7 +142,7 @@ body.dark-theme {
   border: none;
   cursor: pointer;
   img {
-      width: 30px;
-      height: auto;
+    width: 30px;
+    height: auto;
   }
 }

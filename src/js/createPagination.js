@@ -1,12 +1,11 @@
 import { createFilmCard } from './createFilmCard.js';
 import { fetchMovies } from './fetchMovies.js';
 
-const totalPagesToShow = 6; // Modificare la 6 pagini afișate
+const totalPagesToShow = 6; 
 let currentPage = 1;
-let prevPageSet = 4;
 
 // Funcția pentru afișarea filmelor cu paginare
-export function createPagination(movies, searchQuery) {
+export async function createPagination(movies, searchQuery) {
   createFilmCard(movies).then(res => {
     try {
       // Adaugă paginare Bootstrap

@@ -1,26 +1,31 @@
-// tema dark - cauta librarie pe net, citeste doc, instaleaza, do it
+let darkMode = localStorage.getItem('darkMode'); // check for saved 'darkMode' in localStorage
+const darkModeToggle = document.querySelector('#dark-mode-toggle');
 
+const enableDarkMode = () => {
+  document.body.classList.add('darkmode'); // 1. Add the class to the body
+  localStorage.setItem('darkMode', 'enabled'); // 2. Update darkMode in localStorage
+};
 
-function darkTheme() {
-    const body = document.querySelector('body');
-    const btnDark = document.querySelector('.btn-dark');
-    const btnDarkImg = document.querySelector('.dark-img');
-    let isSun = true;
+const disableDarkMode = () => {
+  document.body.classList.remove('darkmode'); // 1. Remove the class from the body
+  localStorage.setItem('darkMode', null); // 2. Update darkMode in localStorage
+};
 
-    btnDark.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        if (isSun) {
-            btnDarkImg.setAttribute('src', '/src/dark theme icon/sun.png');
-            isSun = false;
-            btnDark.style.backgroundColor = '#393646'
-            btnDarkImg.style.backgroundColor = '#393646'
-        } else {
-            btnDarkImg.setAttribute('src', '/src/dark theme icon/moon.png');
-            isSun = true;
-            btnDark.style.backgroundColor = 'white'
-            btnDarkImg.style.backgroundColor = 'white'
-        }
-    })
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === 'enabled') {
+  enableDarkMode();
 }
 
-darkTheme()
+// When someone clicks the button
+darkModeToggle.addEventListener('click', () => {
+  darkMode = localStorage.getItem('darkMode'); // get their darkMode setting
+
+  // if it not current enabled, enable it
+  if (darkMode !== 'enabled') {
+    enableDarkMode();
+    // if it has been enabled, turn it off
+  } else {
+    disableDarkMode();
+  }
+});

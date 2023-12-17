@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",
+    "darkmode-js": "^1.5.7",
     "fontawesome": "^5.6.3",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",

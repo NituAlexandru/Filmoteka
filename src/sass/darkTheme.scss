@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-light: #f5e8e8;
+  --clr-dark: #b92f2c;
+  --clr-primary: #18c944;
+  --clr-secondary: #631918;
+  --clr-white: #fff;
+
+  --foreground: var(--clr-dark);
+  --background: var(--clr-light);
+  --second-background: var(--clr-secondary);
+}
+
+.darkmode {
+  --clr-light: #f5e8e8;
+  --clr-dark: #0a0202;
+  --foreground: var(--clr-light);
+  --background: var(--clr-dark);
+}
+
+body {
+  background: var(--background);
+}
+
+body.darkmode .movie,
+body.darkmode .container,
+body.darkmode .movie-wrapper,
+body.darkmode .movie-wrapper__card,
+body.darkmode .movie-wrapper__title {
+  background: var(--background);
+  color: var(--clr-white);
+}
+body.darkmode .site-nav-item a,
+body.darkmode .watched-queue-container li a {
+  background: var(--background);
+  color: var(--clr-white);
+  border: 1px solid #fff;
+}
+body.darkmode .site-nav-item a:hover,
+body.darkmode .watched-queue-container li a:hover {
+  background-color: var(--clr-white);
+  color: var(--second-background);
+  border: 1px solid var(--second-background);
+}
+body.darkmode footer,
+body.darkmode .footer-container,
+body.darkmode .students,
+body.darkmode .heart {
+  background: var(--second-background);
+  color: var(--clr-white);
+  stroke: var(--clr-white);
+}
+body.darkmode .film-modal-title {
+  background: var(--clr-secondary);
+  color: var(--clr-white);
+}
+body.darkmode .film-modal-content {
+  background: var(--clr-secondary);
+  color: var(--clr-white);
+  box-shadow: 8px 10px 20px #b92f2c;
+}
+body.darkmode .close-modal {
+  color: var(--clr-white);
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  z-index: 10;
+  bottom: 50%;
+  left: 3%;
+  color: var(--clr-white);
+  border: 2px solid currentColor;
+  padding: 4px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+}
