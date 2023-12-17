@@ -1,4 +1,3 @@
-
 export function setupMyLibraryLink() {
   const myLibraryLink = document.querySelector('a[data-request="library"]');
 
@@ -33,7 +32,6 @@ export function setupMyLibraryLink() {
       if (myLibraryBtn) {
         myLibraryBtn.style.display = 'none';
       }
-
       watchedQueueContainers.forEach(container => {
         container.style.display = 'flex';
       });
@@ -41,11 +39,18 @@ export function setupMyLibraryLink() {
         button.style.display = 'flex';
       });
 
-
-
-
-
+      const queueDiv = document.querySelector('.queue');
+      if (queueDiv) {
+        // Adăugați conținutul dorit în div-ul queue
+        queueDiv.innerHTML = 'Conținutul dorit aici'; // înlocuiți cu conținutul real
       
+      
+      
+      
+      }
+
+      // ------------------------------------------------------------
+
       // Setează înălțimea minimă pentru containerul principal
       let headerHeight = 0;
       let footerHeight = 0;
