@@ -70,6 +70,9 @@ export async function createFilmCard(dataPromise) {
 
     movieElement.addEventListener('click', () => openFilmModal(response));
 
+    // Adaugă un atribut data-filmId la fiecare card
+    movieElement.setAttribute('data-filmId', response.id.toString());
+
     // Construiește HTML-ul pentru cardul filmului/serialului
     movieElement.innerHTML = `
       <div class="movie-wrapper__card-img">
@@ -93,8 +96,8 @@ export async function createFilmCard(dataPromise) {
       if (existingModal) {
         existingModal.remove();
       }
-      openFilmModal(response);
-
+      // Exemplu de apelare a openFilmModal
+      openFilmModal(response, movieElement.outerHTML); // Utilizați response, care este datele filmului
     });
   });
 }
