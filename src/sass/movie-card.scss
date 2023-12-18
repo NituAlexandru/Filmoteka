@@ -21,6 +21,22 @@
   background-color: #f5e8e8;
 }
 
+.queue,
+.watched {
+  display: none;
+  grid-template-columns: 1fr; /* Pe mobil, o singură coloană */
+  gap: 20px;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px;
+  height: 100%;
+  background-color: #f5e8e8;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+}
+
 .movie-wrapper {
   display: grid;
   grid-template-columns: 1fr; /* Pe mobil, o singură coloană */
@@ -104,6 +120,12 @@
   .movie-wrapper__card {
     width: 336px;
   }
+  .queue,
+  .watched {
+    grid-template-columns: repeat(2, 1fr); /* 2 coloane pe tablete */
+    justify-content: center;
+    gap: 30px;
+  }
 }
 
 /* Media query pentru desktop (min-width: 1280px) */
@@ -124,6 +146,12 @@
 
   .movie-wrapper__card {
     width: 395px;
+  }
+  .queue,
+  .watched {
+    grid-template-columns: repeat(3, 1fr); /* 2 coloane pe tablete */
+    justify-content: center;
+    gap: 40px;
   }
 }
 
