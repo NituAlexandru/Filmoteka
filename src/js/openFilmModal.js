@@ -14,6 +14,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export const openFilmModal = (filmData, cardHtml) => {
   // Asigurați-vă că filmData este obiectul așteptat și dacă nu, folosiți filmData.data
+  console.log(filmData);
   if (
     !filmData ||
     typeof filmData !== 'object' ||
@@ -129,7 +130,6 @@ export const openFilmModal = (filmData, cardHtml) => {
     setButtonStates(); // Actualizează starea butonului
   });
 
-
   addToWatchedBtn.addEventListener('click', () => {
     const filmObject = getFromStorage(filmData.id);
     if (filmObject) {
@@ -149,6 +149,7 @@ export const openFilmModal = (filmData, cardHtml) => {
     }
     setButtonStates(); // Actualizează starea butonului
   });
+
 
   //-------------------------------------------------------------------------------------
 
