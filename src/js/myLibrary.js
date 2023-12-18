@@ -30,10 +30,11 @@ function handleLibraryOrQueueClick(event) {
     queueDiv.innerHTML = '';
     queueDiv.style.display = 'grid';
     movie.style.display = 'none';
+    watched.style.display = 'none';
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const filmObject = getFromStorage(key);
-      if (filmObject && filmObject.html) {
+      if (filmObject && filmObject.isInQueue) {
         queueDiv.innerHTML += filmObject.html; // Folosiți partea HTML pentru afișare
       }
     }
@@ -55,15 +56,7 @@ function handleLibraryOrQueueClick(event) {
   }
 
   // Setează înălțimea minimă pentru containerul principal
-  let headerHeight = 0;
-  let footerHeight = 0;
-  const header = document.querySelector('header');
-  if (header) headerHeight = header.offsetHeight;
-  const footer = document.querySelector('footer');
-  if (footer) footerHeight = footer.offsetHeight;
-  const windowHeight = window.innerHeight;
-  const minHeight = windowHeight - headerHeight - footerHeight;
-  if (movie) movie.style.minHeight = `${minHeight}px`;
+  setMinimumHeightForContainer(queueDiv);
 }
 //------------------------------------------------------------------------------
 function handleWatchedClick(event) {
@@ -80,10 +73,42 @@ function handleWatchedClick(event) {
   // Manipulează și afișează conținutul pentru watched
   // De exemplu, poți popula conținutul din localStorage sau o altă sursă
   if (watched) {
-    // Codul pentru popularea containerului watched
-    watched.innerHTML = 'Conținut pentru Watched...';
+    movie.style.display = 'none'; // Ascunde containerul movie
+    watched.innerHTML = '';
+    watched.style.display = 'grid'; // Setează stilul display la grid pentru .watched
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const filmObject = getFromStorage(key);
+
+      // Presupunem că filmObject are o proprietate 'isWatched'
+      if (filmObject && filmObject.isWatched) {
+        watched.innerHTML += filmObject.html; // Adaugă partea HTML pentru afișare în watched
+      }
+    }
+    // pentru fereastra modala ------------------------------------
+    //  document
+    //    .querySelector('.watched')
+    //    .addEventListener('click', function (event) {
+    //      const clickedCard = event.target.closest('.movie-wrapper__card');
+    //      if (clickedCard) {
+    //        const filmId = clickedCard.getAttribute('data-filmid');
+    //        const filmObject = getFromStorage(filmId);
+    //        if (filmObject && filmObject.data) {
+    //          openFilmModal(filmObject.data, filmObject.html);
+    //        } else {
+    //          console.error(
+    //            'Obiectul film nu a fost găsit sau nu conține date.'
+    //          );
+    //        }
+    //      }
+    //    });
   }
+  // Setează înălțimea minimă pentru containerul principal
+  setMinimumHeightForContainer(watched);
 }
+
+//---------------------------------------------------------------------------------
 export function setupMyLibraryLink() {
   const myLibraryLink = document.querySelector('a[data-request="library"]');
   const queueLink = document.querySelector('a[data-request="queue"]');
@@ -95,3 +120,15 @@ export function setupMyLibraryLink() {
   if (watchedLink) watchedLink.addEventListener('click', handleWatchedClick);
 }
 // -----------------------------------------------------------------------------
+// Setează înălțimea minimă pentru containerul principal
+function setMinimumHeightForContainer(container) {
+  let headerHeight = 0;
+  let footerHeight = 0;
+  const header = document.querySelector('header');
+  if (header) headerHeight = header.offsetHeight;
+  const footer = document.querySelector('footer');
+  if (footer) footerHeight = footer.offsetHeight;
+  const windowHeight = window.innerHeight;
+  const minHeight = windowHeight - headerHeight - footerHeight;
+  if (container) container.style.minHeight = `${minHeight}px`;
+}

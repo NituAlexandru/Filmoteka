@@ -4,7 +4,11 @@ import {
   getFromStorage,
   removeFromStorage,
 } from './setGetLocalStorage';
-import { addToQueue } from './queueManager';
+import {
+  addToQueue,
+  addToWatched,
+  updateFilmInStorage,
+} from './queueWatchedManager';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -90,33 +94,77 @@ export const openFilmModal = (filmData, cardHtml) => {
 
   // selecteaza butonul addToQueueBtn după ce modalul este adăugat în DOM
   const addToQueueBtn = document.querySelector('#addToQueueBtn');
-
+  const addToWatchedBtn = document.querySelector('#addToWatchedBtn');
   //------------------------------------------------------------------------------------
-
-  // Setarea textului butonului pe baza stării curente din localStorage
-  const setButtonState = () => {
-    const isFilmInQueue = getFromStorage(filmData.id) !== null;
-    addToQueueBtn.textContent = isFilmInQueue
-      ? 'REMOVE FROM QUEUE'
-      : 'ADD TO QUEUE';
+  const setButtonStates = () => {
+    const filmObject = getFromStorage(filmData.id);
+    if (filmObject) {
+      addToQueueBtn.textContent = filmObject.isInQueue
+        ? 'REMOVE FROM QUEUE'
+        : 'ADD TO QUEUE';
+      addToWatchedBtn.textContent = filmObject.isWatched
+        ? 'REMOVE FROM WATCHED'
+        : 'ADD TO WATCHED';
+    }
   };
+  setButtonStates();
 
-  setButtonState(); // Setarea inițială a textului butonului
+  // // Setarea textului butonului pe baza stării curente din localStorage
+  // const setQueueButtonState = () => {
+  //   const isFilmInQueue = getFromStorage(filmData.id) !== null;
+  //   addToQueueBtn.textContent = isFilmInQueue
+  //     ? 'REMOVE FROM QUEUE'
+  //     : 'ADD TO QUEUE';
+  // };
+  // setQueueButtonState(); // Setarea inițială a textului butonului
 
   addToQueueBtn.addEventListener('click', () => {
-    const isFilmInQueue = getFromStorage(filmData.id) !== null;
-    if (isFilmInQueue) {
-      removeFromStorage(filmData.id);
-      console.log('Filmul a fost eliminat din coadă');
+    const filmObject = getFromStorage(filmData.id);
+    if (filmObject) {
+      // Toggle starea isInQueue și păstrează starea isWatched
+      updateFilmInStorage(
+        filmData.id,
+        !filmObject.isInQueue,
+        filmObject.isWatched
+      );
     } else {
+      // Dacă filmul nu este în local storage, îl adăugăm
       addToQueue({
         id: filmData.id,
-        cardHtml: cardHtml, // Asigurați-vă că aveți HTML-ul cardului aici
-        data: filmData, // Datele complete ale filmului
+        cardHtml: cardHtml,
+        data: filmData,
       });
-      console.log('Filmul a fost adăugat în coadă');
     }
-    setButtonState(); // Actualizați starea butonului după fiecare click
+    setButtonStates(); // Actualizează starea butonului
+  });
+
+  // // Setarea textului butonului pe baza stării curente din localStorage
+  // const setWatchedButtonState = () => {
+  //   const isFilmInWatched = getFromStorage(filmData.id) !== null;
+  //   addToWatchedBtn.textContent = isFilmInWatched
+  //     ? 'REMOVE FROM WATCHED'
+  //     : 'ADD TO WATCHED';
+  // };
+  // setWatchedButtonState();
+
+  addToWatchedBtn.addEventListener('click', () => {
+    const filmObject = getFromStorage(filmData.id);
+    if (filmObject) {
+      // Toggle starea isWatched și păstrează starea isInQueue
+      updateFilmInStorage(
+        filmData.id,
+        filmObject.isInQueue,
+        !filmObject.isWatched
+      );
+    } else {
+      // Dacă filmul nu este în local storage, îl adăugăm
+      addToWatched({
+        id: filmData.id,
+        cardHtml: cardHtml,
+        data: filmData,
+      });
+    }
+    setButtonStates(); // Actualizează starea butonului
   });
 
   //-------------------------------------------------------------------------------------

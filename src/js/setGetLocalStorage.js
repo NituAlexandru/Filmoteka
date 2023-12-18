@@ -12,12 +12,14 @@ export const addToStorage = (key, value) => {
 // ---------------------------------------------------------------------------
 export const getFromStorage = key => {
   try {
-    return JSON.parse(localStorage.getItem(key));
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
   } catch (error) {
-    console.error(error);
-    return null;
+    console.error('Eroare la parsarea datelor din localStorage:', error);
+    return null; // sau returnați o valoare implicită adecvată
   }
 };
+
 // ------------------------------------------------------------------
 export const removeFromStorage = key => {
   try {
