@@ -18,7 +18,12 @@ export async function fetchMovieTrailer(movieId) {
       ? `https://www.youtube.com/embed/${youtubeTrailer.key}?autoplay=1`
       : null;
   } catch (error) {
-    return null;
+    if (error.response && error.response.status === 404) {
+      return null;
+    } else {
+      console.error('A apărut o eroare la obținerea trailerului.');
+      return null;
+    }
   }
 }
 

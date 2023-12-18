@@ -6,15 +6,24 @@ import { openFilmModal } from './openFilmModal';
 
 let searchQuery = '';
 
+// Selectarea formularului de căutare și a iconiței de căutare
 export const searchForm = document.querySelector('.search-form');
+const searchIcon = document.querySelector('.fa.fa-search'); // Asigurați-vă că acest selector corespunde cu iconița de căutare din HTML-ul dvs.
 
+// Event listener pentru submit-ul formularului
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
   searchQuery = e.currentTarget.elements.searchQuery.value.trim();
 
+  if (!searchQuery) {
+    Notiflix.Notify.failure('Please enter a search term.');
+    return;
+  }
+
   try {
     const moviesData = await fetchMovies(searchQuery);
     console.log('Datele primite după căutare:', moviesData);
+
     if (!moviesData || moviesData.results.length === 0) {
       Notiflix.Notify.failure(
         `Sorry, we couldn't find any films matching "${searchQuery}". Please try a different search term.`
@@ -37,4 +46,8 @@ searchForm.addEventListener('submit', async e => {
       error
     );
   }
+});
+
+searchIcon.addEventListener('click', () => {
+  searchForm.dispatchEvent(new Event('submit'));
 });
