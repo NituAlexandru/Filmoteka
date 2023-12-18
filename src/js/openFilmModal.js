@@ -109,15 +109,6 @@ export const openFilmModal = (filmData, cardHtml) => {
   };
   setButtonStates();
 
-  // // Setarea textului butonului pe baza stării curente din localStorage
-  // const setQueueButtonState = () => {
-  //   const isFilmInQueue = getFromStorage(filmData.id) !== null;
-  //   addToQueueBtn.textContent = isFilmInQueue
-  //     ? 'REMOVE FROM QUEUE'
-  //     : 'ADD TO QUEUE';
-  // };
-  // setQueueButtonState(); // Setarea inițială a textului butonului
-
   addToQueueBtn.addEventListener('click', () => {
     const filmObject = getFromStorage(filmData.id);
     if (filmObject) {
@@ -138,14 +129,6 @@ export const openFilmModal = (filmData, cardHtml) => {
     setButtonStates(); // Actualizează starea butonului
   });
 
-  // // Setarea textului butonului pe baza stării curente din localStorage
-  // const setWatchedButtonState = () => {
-  //   const isFilmInWatched = getFromStorage(filmData.id) !== null;
-  //   addToWatchedBtn.textContent = isFilmInWatched
-  //     ? 'REMOVE FROM WATCHED'
-  //     : 'ADD TO WATCHED';
-  // };
-  // setWatchedButtonState();
 
   addToWatchedBtn.addEventListener('click', () => {
     const filmObject = getFromStorage(filmData.id);
