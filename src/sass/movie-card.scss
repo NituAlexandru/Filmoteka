@@ -105,7 +105,16 @@
   left: 5%;
   top: 5%;
 }
-
+/*-------------------------------------Very Small Devices----*/
+@media (max-width: 320px) {
+  .movie-wrapper__card {
+    width: 240px;
+    padding: 0;
+  }
+  .movie-wrapper__card-img {
+    width: 100%;
+  }
+}
 /* Media query pentru tablete (min-width: 768px) */
 @media (min-width: 768px) {
   .movie-wrapper {

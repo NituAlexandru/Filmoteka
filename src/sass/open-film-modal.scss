@@ -69,6 +69,7 @@
   color: #b92f2c;
   font-style: normal;
   line-height: 24px;
+  margin-top: 30px;
 }
 .film-modal-score span {
   display: inline-block;
@@ -92,7 +93,7 @@
   padding: 10px;
 }
 .film-modal-actions button {
-  padding: 10px 24px;
+  padding: 15px 10px;
   gap: 10px;
   border-radius: 100px;
   background: #b92f2c;
@@ -103,15 +104,45 @@
 .film-modal-actions button:hover {
   background: #000;
   color: #fff;
- 
+}
+
+@media (max-width: 320px) {
+  .film-modal .film-modal-content {
+    padding: 5px;
+    width: 95%;
+  }
+  .film-modal-content .close-modal {
+    top: 5px;
+    right: 5px;
+    font-size: 26px;
+  }
+  .film-modal-content .film-modal-title {
+    font-size: 20px;
+    margin-top: 25px;
+    font-weight: 500;
+  }
+  .film-modal-content .film-modal-about {
+    font-size: 16px;
+  }
+  .film-modal-content p {
+    font-size: 16px;
+  }
+  .film-modal-actions {
+    font-size: 12px;
+    gap: 15px;
+    padding: 5px;
+  }
+  .film-modal-actions button {
+    padding: 10px 5px;
+  }
 }
 
 @media (max-width: 500px) {
   .film-modal-content {
     height: auto;
-    width: 90%;
+    width: 95%;
+    padding: 10px;
   }
-
   .close-modal {
     position: absolute;
     top: 10px;
@@ -119,11 +150,31 @@
     cursor: pointer;
     font-size: 20px;
     color: #000000;
+    font-size: 30px;
+    padding: 0;
+  }
+  .film-modal-title {
+    margin-top: 25px;
+  }
+  .film-modal-content .film-modal-actions button {
+    padding: 10px;
+  }
+  .film-modal-actions button {
+    padding: 10px;
   }
 }
 
 @media (min-width: 768px) {
+  .film-modal-title {
+    margin-top: 30px;
+  }
+  .film-modal-content {
+    max-width: 800px;
+  }
 }
 
 @media (min-width: 1280px) {
+  .film-modal-content {
+    max-width: 950px;
+  }
 }
