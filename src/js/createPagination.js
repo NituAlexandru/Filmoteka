@@ -1,122 +1,52 @@
-import { createFilmCard } from './createFilmCard.js';
-import { fetchMovies } from './fetchMovies.js';
+import Pagination from 'tui-pagination';
+import { fetchMovies } from './fetchMovies';
+import { options } from './options-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import { createFilmCard } from './createFilmCard';
 
-const totalPagesToShow = 6; 
-let currentPage = 1;
+export async function createPagination() {
+  const pagination = new Pagination('pagination', options);
 
-// Funcția pentru afișarea filmelor cu paginare
-export async function createPagination(movies, searchQuery) {
-  createFilmCard(movies).then(res => {
-    try {
-      // Adaugă paginare Bootstrap
-      const paginationContainer = document.getElementById('pagination');
-      paginationContainer.innerHTML = '';
-      if (movies.total_pages > 1) {
-        const pagination = document.createElement('nav');
-        pagination.setAttribute('aria-label', 'Page navigation');
+  pagination.on('afterMove', onPaginationClick);
 
-        const pageList = document.createElement('ul');
-        pageList.classList.add('pagination');
-
-        const prevPageItem = document.createElement('li');
-        prevPageItem.classList.add('page-item');
-
-        const prevPageLink = document.createElement('a');
-        prevPageLink.classList.add('page-link');
-        prevPageLink.href = '#';
-        prevPageLink.innerHTML = '&laquo;';
-        prevPageLink.addEventListener('click', async () => {
-          const prevPage = Math.max(1, currentPage - totalPagesToShow + 1);
-
-          if (prevPage !== currentPage) {
-            currentPage = prevPage;
-            const moviesByPage = await fetchMovies(searchQuery, prevPage);
-            createPagination(moviesByPage, searchQuery);
-          }
-        });
-
-        prevPageItem.appendChild(prevPageLink);
-        pageList.appendChild(prevPageItem);
-
-        for (
-          let i = Math.max(1, currentPage - Math.floor(totalPagesToShow / 2));
-          i <=
-          Math.min(
-            movies.total_pages,
-            currentPage + Math.floor(totalPagesToShow / 2)
-          );
-          i++
-        ) {
-          const pageItem = document.createElement('li');
-          pageItem.classList.add('page-item');
-
-          const pageLink = document.createElement('a');
-          pageLink.classList.add('page-link');
-          pageLink.href = '#';
-          pageLink.textContent = i;
-
-          pageLink.addEventListener('click', async event => {
-            try {
-              const moviesByPage = await fetchMovies(searchQuery, i);
-
-              // Găsește pagina activă folosind funcția separată
-              const activePageItem = findActivePage(
-                paginationContainer,
-                event.target
-              );
-
-              // Elimină clasa "active" de la toate paginile
-              document
-                .querySelectorAll('.pagination .page-item')
-                .forEach(item => {
-                  item.classList.remove('active');
-                });
-
-              // Adaugă clasa "active" doar pentru pagina curentă
-              if (activePageItem) {
-                activePageItem.classList.add('active');
-              }
-
-              createPagination(moviesByPage, searchQuery);
-            } catch (error) {
-              console.error('Eroare la încărcarea paginii:', error);
-            }
-          });
-
-          pageItem.appendChild(pageLink);
-          pageList.appendChild(pageItem);
-        }
-
-        const nextPageSetItem = document.createElement('li');
-        nextPageSetItem.classList.add('page-item');
-
-        const nextPageSetLink = document.createElement('a');
-        nextPageSetLink.classList.add('page-link');
-        nextPageSetLink.href = '#';
-        nextPageSetLink.innerHTML = '&raquo;';
-        nextPageSetLink.addEventListener('click', async () => {
-          const nextSetPage = Math.min(
-            movies.total_pages,
-            currentPage + totalPagesToShow
-          );
-
-          currentPage = nextSetPage;
-          const moviesByPage = await fetchMovies(searchQuery, nextSetPage);
-          createPagination(moviesByPage, searchQuery);
-        });
-
-        nextPageSetItem.appendChild(nextPageSetLink);
-        pageList.appendChild(nextPageSetItem);
-
-        pagination.appendChild(pageList);
-        paginationContainer.appendChild(pagination);
-      }
-    } catch (error) {
-      console.error(error);
+  async function onPaginationClick(e) {
+    const lastPageNumber = Number(
+      document.querySelector('.tui-ico-last').textContent
+    );
+    const selectedPage = e.page;
+    if ((selectedPage > 1) & (selectedPage < lastPageNumber)) {
+      hideBtn(selectedPage);
     }
-  });
-}
 
-function findActivePage(container, target) {
-  return target.closest('.page-item');
+    const dataResponse = await fetchMovies(null, selectedPage);
+    console.log(dataResponse);
+    createFilmCard(dataResponse);
+    scrollToTop();
+  }
+  function hideBtn(selectedPage) {
+    const firstPageBtnRef = document.querySelector('.custom-class-first');
+    const lastPageBtnRef = document.querySelector('.custom-class-last');
+    const lastPageNumber = Number(
+      document.querySelector('.tui-ico-last').textContent
+    );
+
+    if (selectedPage < 4) {
+      firstPageBtnRef.classList.add('btn-hidden');
+      return;
+    }
+    if (lastPageNumber - selectedPage < 3) {
+      lastPageBtnRef.classList.add('btn-hidden');
+      return;
+    }
+
+    lastPageBtnRef.classList.remove('btn-hidden');
+    firstPageBtnRef.classList.remove('btn-hidden');
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 240,
+      behavior: 'smooth',
+    });
+  }
 }

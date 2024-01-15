@@ -1,8 +1,10 @@
 import { fetchMovies } from './fetchMovies';
 import { createFilmCard } from './createFilmCard';
-import { createPagination } from './createPagination';
 import Notiflix from 'notiflix';
 import { openFilmModal } from './openFilmModal';
+import { createPagination } from './createPagination';
+import { options } from './options-pagination';
+import { Pagination } from 'tui-pagination';
 
 let searchQuery = '';
 
@@ -36,8 +38,7 @@ searchForm.addEventListener('submit', async e => {
     }
 
     const totalPages = moviesData.total_pages;
-    createFilmCard(moviesData);
-    createPagination(moviesData, totalPages);
+    createFilmCard(moviesData, totalPages);
     searchForm.reset();
     console.log('Filme gasite', moviesData);
   } catch (error) {
