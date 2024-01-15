@@ -11,6 +11,7 @@ function handleLibraryOrQueueClick(event) {
   const watchedQueueContainers = document.querySelectorAll(
     '.watched-queue-container'
   );
+  const libraryContainer = document.querySelector('.library-container');
   const siteNavButtons = document.querySelectorAll('.site-nav-button');
   const myLibraryBtn = document.querySelector('.site-nav-item.my-library-btn');
 
@@ -24,6 +25,8 @@ function handleLibraryOrQueueClick(event) {
     container => (container.style.display = 'flex')
   );
   siteNavButtons.forEach(button => (button.style.display = 'flex'));
+  libraryContainer.style.display = 'flex';
+  
 
   const queueDiv = document.querySelector('.queue');
   if (queueDiv) {
@@ -35,7 +38,7 @@ function handleLibraryOrQueueClick(event) {
       const key = localStorage.key(i);
       const filmObject = getFromStorage(key);
       if (filmObject && filmObject.isInQueue) {
-        queueDiv.innerHTML += filmObject.html; // Folosiți partea HTML pentru afișare
+        queueDiv.innerHTML += filmObject.html;
       }
     }
 
@@ -76,6 +79,7 @@ function handleWatchedClick(event) {
     movie.style.display = 'none'; // Ascunde containerul movie
     watched.innerHTML = '';
     watched.style.display = 'grid'; // Setează stilul display la grid pentru .watched
+    queue.style.display = 'none';
 
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -86,23 +90,6 @@ function handleWatchedClick(event) {
         watched.innerHTML += filmObject.html; // Adaugă partea HTML pentru afișare în watched
       }
     }
-    // pentru fereastra modala ------------------------------------
-    //  document
-    //    .querySelector('.watched')
-    //    .addEventListener('click', function (event) {
-    //      const clickedCard = event.target.closest('.movie-wrapper__card');
-    //      if (clickedCard) {
-    //        const filmId = clickedCard.getAttribute('data-filmid');
-    //        const filmObject = getFromStorage(filmId);
-    //        if (filmObject && filmObject.data) {
-    //          openFilmModal(filmObject.data, filmObject.html);
-    //        } else {
-    //          console.error(
-    //            'Obiectul film nu a fost găsit sau nu conține date.'
-    //          );
-    //        }
-    //      }
-    //    });
   }
   // Setează înălțimea minimă pentru containerul principal
   setMinimumHeightForContainer(watched);

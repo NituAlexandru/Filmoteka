@@ -81,8 +81,8 @@ body.darkmode #scrollToTopBtn:hover {
 .dark-mode-toggle {
   position: absolute;
   z-index: 10;
-  top: 20px;
-  right: 30px;
+  top: 0;
+  right: -12px;
   color: var(--background);
   padding: 4px;
   background: transparent;
@@ -91,17 +91,21 @@ body.darkmode #scrollToTopBtn:hover {
   height: 40px;
   border: none;
 }
+.fas.fa-sun, .fas.fa-moon {
+  width: 40px;
+  height: 40px;
+}
 .dark-mode-toggle .fas.fa-sun {
   color: var(--clr-white);
-  border: 2px solid var(--clr-white);
+  border: none;
   border-radius: 50%;
-  padding: 10px;
+
 }
 .dark-mode-toggle .fas.fa-moon {
-  color: var(--background);
-  border: 2px solid var(--background);
+  color: var(--clr-white);
+  border: none;
   border-radius: 50%;
-  padding: 10px;
+  
 }
 
 /* Pentru tot conținutul paginii */

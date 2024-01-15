@@ -30,10 +30,10 @@ div a {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   max-width: 320px;
   min-width: 280px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 0;
 }
 @media (min-device-pixel-ratio: 2),
