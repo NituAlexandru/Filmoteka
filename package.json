@@ -2,20 +2,20 @@
   "name": "hw-group-project-02-js",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://github.com/NituAlexandru/hw-group-project-02-JS",
+  "homepage": "https://github.com/NituAlexandru/Filmoteka/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /hw-group-project-02-JS/"
+    "build": "parcel build src/*.html --public-url /Filmoteka/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NituAlexandru/hw-group-project-02-JS"
+    "url": "git+https://github.com/NituAlexandru/Filmoteka"
   },
   "keywords": [],
   "author": "Nitu Alexandru <nitzu_alexandru@yahoo.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NituAlexandru/hw-group-project-02-JS/issues"
+    "url": "https://github.com/NituAlexandru/Filmoteka/issues"
   },
   "dependencies": {
     "axios": "^1.6.2",
