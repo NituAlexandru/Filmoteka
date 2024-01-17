@@ -68,8 +68,6 @@ export async function createFilmCard(dataPromise) {
       ? `https://image.tmdb.org/t/p/w500${response.poster_path}`
       : 'path/to/default/image.jpg';
 
-    movieElement.addEventListener('click', () => openFilmModal(response));
-
     // Adaugă un atribut data-filmId la fiecare card
     movieElement.setAttribute('data-filmId', response.id.toString());
 

@@ -9,8 +9,6 @@ import { searchForm } from './js/searchForm.js';
 import { createFilmCard } from './js/createFilmCard.js';
 import { createPagination } from './js/createPagination.js';
 
-isSearched = true;
-
 window.addEventListener('load', async () => {
   try {
     footerGetFullYear();

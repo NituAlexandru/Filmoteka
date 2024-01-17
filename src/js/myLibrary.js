@@ -26,7 +26,6 @@ function handleLibraryOrQueueClick(event) {
   );
   siteNavButtons.forEach(button => (button.style.display = 'flex'));
   libraryContainer.style.display = 'flex';
-  
 
   const queueDiv = document.querySelector('.queue');
   if (queueDiv) {
@@ -50,7 +49,7 @@ function handleLibraryOrQueueClick(event) {
           const filmId = clickedCard.getAttribute('data-filmid');
           const filmObject = getFromStorage(filmId);
           if (filmObject && filmObject.data) {
-            openFilmModal(filmObject.data, filmObject.html);
+            openFilmModal(filmObject.data.data, filmObject.html);
           } else {
             console.error('Obiectul film nu a fost găsit sau nu conține date.');
           }

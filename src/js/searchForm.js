@@ -1,10 +1,7 @@
 import { fetchMovies } from './fetchMovies';
 import { createFilmCard } from './createFilmCard';
 import Notiflix from 'notiflix';
-import { openFilmModal } from './openFilmModal';
-import { createPagination } from './createPagination';
-import { options } from './options-pagination';
-import { Pagination } from 'tui-pagination';
+
 
 let searchQuery = '';
 
