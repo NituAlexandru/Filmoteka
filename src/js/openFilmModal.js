@@ -14,7 +14,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export const openFilmModal = (filmData, cardHtml) => {
   // Asigurați-vă că filmData este obiectul așteptat și dacă nu, folosiți filmData.data
-  console.log(filmData);
+  // console.log('Opening modal for film:', filmData);
   if (
     !filmData ||
     typeof filmData !== 'object' ||
@@ -92,6 +92,7 @@ export const openFilmModal = (filmData, cardHtml) => {
 
   // adauga fereastra modală în DOM
   document.body.insertAdjacentHTML('beforeend', modalHtml);
+  const modal = document.querySelector('.film-modal');
 
   // selecteaza butonul addToQueueBtn după ce modalul este adăugat în DOM
   const addToQueueBtn = document.querySelector('#addToQueueBtn');
@@ -150,7 +151,6 @@ export const openFilmModal = (filmData, cardHtml) => {
     setButtonStates(); // Actualizează starea butonului
   });
 
-
   //-------------------------------------------------------------------------------------
 
   new SimpleLightbox('.film-modal-content a', {
@@ -159,21 +159,27 @@ export const openFilmModal = (filmData, cardHtml) => {
     showCounter: true,
   });
   // Adăugați funcționalitatea pentru închiderea ferestrei modale
-  const modal = document.querySelector('.film-modal');
 
-  modal.addEventListener('click', event => {
+  function handleModalClick(event) {
     if (
       event.target === modal ||
       event.target.classList.contains('close-modal')
     ) {
       modal.remove();
+      document.removeEventListener('click', handleModalClick);
+      document.removeEventListener('keydown', handleEscapeKey);
     }
-  });
+  }
+
   // Funcție pentru a gestiona apăsarea tastei Escape
-  document.addEventListener('keydown', function (event) {
+  function handleEscapeKey(event) {
     if (event.key === 'Escape') {
       modal.remove();
-      console.log('Tasta Escape a fost apăsată!');
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('click', handleModalClick);
     }
-  });
+  }
+
+  modal.addEventListener('click', handleModalClick);
+  document.addEventListener('keydown', handleEscapeKey);
 };
