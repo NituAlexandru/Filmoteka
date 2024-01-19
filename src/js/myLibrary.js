@@ -1,7 +1,9 @@
 import { getFromStorage } from './setGetLocalStorage';
 import { openFilmModal } from './openFilmModal';
 
-function handleQueueClick(event) {
+let isEventAttached = false;
+
+function handleCardClick(event) {
   const clickedCard = event.target.closest('.movie-wrapper__card');
   if (clickedCard) {
     const filmId = clickedCard.getAttribute('data-filmid');
@@ -54,25 +56,12 @@ function handleLibraryOrQueueClick(event) {
     }
     // console.log('Queue cards updated:', queueDiv.innerHTML);
 
-    document
-      .querySelector('.queue')
-      .addEventListener('click', function (event) {
-        // console.log('Clicked in queue');
-        const clickedCard = event.target.closest('.movie-wrapper__card');
-        // console.log('Clicked card:', clickedCard);
-        if (clickedCard) {
-          const filmId = clickedCard.getAttribute('data-filmid');
-          const filmObject = getFromStorage(filmId);
-          // console.log('Film object:', filmObject);
-          if (filmObject && filmObject.data) {
-            openFilmModal(filmObject.data.data, filmObject.html);
-          } else {
-            console.error('Obiectul film nu a fost găsit sau nu conține date.');
-          }
-        }
-      });
-    queueDiv.removeEventListener('click', handleQueueClick);
-    
+    if (!isEventAttached) {
+      document
+        .querySelector('.library-container')
+        .addEventListener('click', handleCardClick);
+      isEventAttached = true;
+    }
   }
 
   // Setează înălțimea minimă pentru containerul principal
@@ -108,22 +97,13 @@ function handleWatchedClick(event) {
       }
     }
   }
-document.querySelector('.watched').addEventListener('click', function (event) {
-  console.log('Clicked in queue');
-  const clickedCard = event.target.closest('.movie-wrapper__card');
-  console.log('Clicked card:', clickedCard);
-  if (clickedCard) {
-    const filmId = clickedCard.getAttribute('data-filmid');
-    const filmObject = getFromStorage(filmId);
-    console.log('Film object:', filmObject);
-    if (filmObject && filmObject.data) {
-      openFilmModal(filmObject.data.data, filmObject.html);
-    } else {
-      console.error('Obiectul film nu a fost găsit sau nu conține date.');
-    }
-  }
-});
-  
+    if (!isEventAttached) {
+       document
+         .querySelector('.library-container')
+         .addEventListener('click', handleCardClick);
+       isEventAttached = true;
+     }
+
   // Setează înălțimea minimă pentru containerul principal
   setMinimumHeightForContainer(watched);
 }
