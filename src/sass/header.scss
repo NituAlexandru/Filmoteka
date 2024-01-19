@@ -289,7 +289,7 @@ div a {
 @media (min-width: 1280px) {
   .header-home {
     background-image: url('./images/background-header-1x-d.png');
-    padding: 25px;
+    padding: 25px 0;
     justify-content: space-between;
   }
 
@@ -301,7 +301,7 @@ div a {
     }
   }
   .header-content-container {
-    min-width: 1216px;
+    min-width: 1260px;
   }
   .fa-search {
     font-size: 45px;
