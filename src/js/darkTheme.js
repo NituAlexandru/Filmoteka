@@ -1,35 +1,28 @@
-export let darkMode = localStorage.getItem('darkMode'); // check for saved 'darkMode' in localStorage
-const darkModeToggle = document.querySelector('#dark-mode-toggle');
-const darkModeIcon = document.querySelector('#dark-mode-icon');
+
+export let darkMode = localStorage.getItem('darkMode');
+const darkModeToggle = document.querySelector('#checkbox');
 
 const enableDarkMode = () => {
-  document.body.classList.add('darkmode'); // 1. Add the class to the body
-  localStorage.setItem('darkMode', 'enabled'); // 2. Update darkMode in localStorage
-  darkModeIcon.classList.remove('fa-sun'); // 3. Schimbă iconița în soare
-  darkModeIcon.classList.add('fa-moon');
+  document.body.classList.add('darkmode'); // Adaugă clasa darkmode pe body
+  localStorage.setItem('darkMode', 'enabled'); // Actualizează darkMode în localStorage
 };
 
 const disableDarkMode = () => {
-  document.body.classList.remove('darkmode'); // 1. Remove the class from the body
-  localStorage.setItem('darkMode', null); // 2. Update darkMode in localStorage
-  darkModeIcon.classList.remove('fa-moon');
-  darkModeIcon.classList.add('fa-sun');
+  document.body.classList.remove('darkmode'); // Elimină clasa darkmode de pe body
+  localStorage.setItem('darkMode', null); // Actualizează darkMode în localStorage
 };
 
-// If the user already visited and enabled darkMode
-// start things off with it on
+// Setează tema în funcție de preferința salvată în localStorage
 if (darkMode === 'enabled') {
+  darkModeToggle.checked = true;
   enableDarkMode();
 }
 
-// When someone clicks the button
-darkModeToggle.addEventListener('click', () => {
-  darkMode = localStorage.getItem('darkMode'); // get their darkMode setting
-
-  // if it not current enabled, enable it
-  if (darkMode !== 'enabled') {
+// Ascultător pentru schimbarea stării butonului de comutare
+darkModeToggle.addEventListener('change', () => {
+  darkMode = localStorage.getItem('darkMode');
+  if (darkModeToggle.checked) {
     enableDarkMode();
-    // if it has been enabled, turn it off
   } else {
     disableDarkMode();
   }

@@ -103,7 +103,8 @@ div a {
   background: transparent;
   border: none;
   position: absolute;
-  left: 250px;
+  left: 245px;
+  z-index: 10;
 }
 .search-form-input::placeholder {
   color: rgba(255, 255, 255, 0.8);
@@ -313,5 +314,8 @@ div a {
   }
   .film-icon {
     font-size: 100px;
+  }
+  .search-form-input {
+    padding: 10px;
   }
 }
