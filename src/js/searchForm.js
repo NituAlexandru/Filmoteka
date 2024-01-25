@@ -2,8 +2,8 @@ import { fetchMovies } from './fetchMovies';
 import { createFilmCard } from './createFilmCard';
 import Notiflix from 'notiflix';
 
-
 let searchQuery = '';
+export let currentSearchQuery = '';
 
 // Selectarea formularului de căutare și a iconiței de căutare
 export const searchForm = document.querySelector('.search-form');
@@ -12,15 +12,17 @@ const searchIcon = document.querySelector('.fa.fa-search'); // Asigurați-vă c�
 // Event listener pentru submit-ul formularului
 searchForm.addEventListener('submit', async e => {
   e.preventDefault();
-  searchQuery = e.currentTarget.elements.searchQuery.value.trim();
+  const userSearchQuery = e.currentTarget.elements.searchQuery.value.trim();
 
-  if (!searchQuery) {
+  if (!userSearchQuery) {
     Notiflix.Notify.failure('Please enter a search term.');
     return;
   }
 
+  currentSearchQuery = userSearchQuery;
+
   try {
-    const moviesData = await fetchMovies(searchQuery);
+    const moviesData = await fetchMovies(currentSearchQuery);
     console.log('Datele primite după căutare:', moviesData);
 
     if (!moviesData || moviesData.results.length === 0) {
@@ -36,8 +38,7 @@ searchForm.addEventListener('submit', async e => {
 
     const totalPages = moviesData.total_pages;
     createFilmCard(moviesData, totalPages);
-    searchForm.reset();
-    console.log('Filme gasite', moviesData);
+    searchForm.elements.searchQuery.value = '';
   } catch (error) {
     console.error(
       'Search result is not successful. Enter the correct movie name and press enter',

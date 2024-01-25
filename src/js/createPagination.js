@@ -3,6 +3,7 @@ import { fetchMovies } from './fetchMovies';
 import { options } from './options-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { createFilmCard } from './createFilmCard';
+import { currentSearchQuery } from './searchForm';
 
 export async function createPagination() {
   const pagination = new Pagination('pagination', options);
@@ -18,7 +19,7 @@ export async function createPagination() {
       hideBtn(selectedPage);
     }
 
-    const dataResponse = await fetchMovies(null, selectedPage);
+    const dataResponse = await fetchMovies(currentSearchQuery, selectedPage);
     console.log(dataResponse);
     createFilmCard(dataResponse);
     scrollToTop();
