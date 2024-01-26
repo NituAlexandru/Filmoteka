@@ -140,7 +140,7 @@
 /* Media query pentru desktop (min-width: 1280px) */
 @media (min-width: 1280px) {
   .movie-wrapper {
-    grid-template-columns: repeat(3, 1fr); /* 3 coloane pe desktop */
+    grid-template-columns: repeat(4, 1fr); /* 4 coloane pe desktop */
     gap: 40px;
   }
   .movie-wrapper__info {
@@ -149,20 +149,21 @@
     line-height: 24px;
   }
   .movie-wrapper__card-img img {
-    width: 395px;
-    height: 574px;
+    width: 295px; /* Ajustat pentru 4 coloane */
+    height: auto; /* Sau o valoare specifică, dacă este necesar */
   }
 
   .movie-wrapper__card {
-    width: 395px;
+    width: 295px; /* Ajustat pentru 4 coloane */
   }
   .queue,
   .watched {
-    grid-template-columns: repeat(3, 1fr); /* 2 coloane pe tablete */
+    grid-template-columns: repeat(4, 1fr); /* 4 coloane pe desktop */
     justify-content: center;
     gap: 40px;
   }
 }
+
 
 /* Stiluri pentru Dark theme */
 body.dark-theme {
