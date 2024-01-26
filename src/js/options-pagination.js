@@ -1,5 +1,5 @@
 export const options = {
-  totalItems: 100,
+  totalItems: 500, //max ammount from database
   itemsPerPage: 1,
   visiblePages: 5,
   page: 1,

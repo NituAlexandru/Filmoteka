@@ -17,7 +17,7 @@ export async function createPagination() {
       document.querySelector('.tui-ico-last').textContent
     );
     const selectedPage = e.page;
-    if ((selectedPage > 1) & (selectedPage < lastPageNumber)) {
+    if ((selectedPage > 1) & (selectedPage <= lastPageNumber)) {
       hideBtn(selectedPage);
     }
 
