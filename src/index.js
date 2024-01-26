@@ -7,7 +7,7 @@ import { darkmode } from './js/darkTheme.js';
 import { scrollFunction, backToTop } from './js/scrollToTopBtn.js';
 import { searchForm } from './js/searchForm.js';
 import { createFilmCard } from './js/createFilmCard.js';
-import { options } from './js/options-pagination.js';
+import { options, totalItems } from './js/options-pagination.js';
 import { createPagination } from './js/createPagination.js';
 
 window.addEventListener('load', async () => {

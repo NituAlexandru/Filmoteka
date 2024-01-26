@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
 import { fetchMovies } from './fetchMovies';
-import { options } from './options-pagination';
+import { options, totalItems } from './options-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { createFilmCard } from './createFilmCard';
 import { currentSearchQuery } from './searchForm';
