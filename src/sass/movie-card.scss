@@ -140,7 +140,7 @@
 /* Media query pentru desktop (min-width: 1280px) */
 @media (min-width: 1280px) {
   .movie-wrapper {
-    grid-template-columns: repeat(4, 1fr); /* 4 coloane pe desktop */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 40px;
   }
   .movie-wrapper__info {
@@ -149,7 +149,7 @@
     line-height: 24px;
   }
   .movie-wrapper__card-img img {
-    width: 295px; /* Ajustat pentru 4 coloane */
+    width: 295px; 
     height: auto; /* Sau o valoare specifică, dacă este necesar */
   }
 
@@ -158,7 +158,7 @@
   }
   .queue,
   .watched {
-    grid-template-columns: repeat(4, 1fr); /* 4 coloane pe desktop */
+    grid-template-columns: repeat(4, 1fr); 
     justify-content: center;
     gap: 40px;
   }
@@ -167,8 +167,8 @@
 
 /* Stiluri pentru Dark theme */
 body.dark-theme {
-  --background-color-light: #000000; /* fundal pentru tema Dark */
-  --text-color-light: #ffffff; /* text pentru tema Dark */
+  --background-color-light: #000000; 
+  --text-color-light: #ffffff; 
 }
 
 .dark {
