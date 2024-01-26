@@ -5,7 +5,9 @@ import 'tui-pagination/dist/tui-pagination.css';
 import { createFilmCard } from './createFilmCard';
 import { currentSearchQuery } from './searchForm';
 
+
 export async function createPagination() {
+
   const pagination = new Pagination('pagination', options);
 
   pagination.on('afterMove', onPaginationClick);
@@ -21,12 +23,15 @@ export async function createPagination() {
 
     const dataResponse = await fetchMovies(currentSearchQuery, selectedPage);
     console.log(dataResponse);
+
     createFilmCard(dataResponse);
+
     scrollToTop();
   }
   function hideBtn(selectedPage) {
     const firstPageBtnRef = document.querySelector('.custom-class-first');
     const lastPageBtnRef = document.querySelector('.custom-class-last');
+
     const lastPageNumber = Number(
       document.querySelector('.tui-ico-last').textContent
     );

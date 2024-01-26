@@ -1,5 +1,6 @@
 import { fetchMovies } from './fetchMovies';
-import { createFilmCard } from './createFilmCard';
+import { options, totalItems } from './options-pagination';
+import { createPagination } from './createPagination';
 import Notiflix from 'notiflix';
 
 let searchQuery = '';
@@ -23,21 +24,23 @@ searchForm.addEventListener('submit', async e => {
 
   try {
     const moviesData = await fetchMovies(currentSearchQuery);
+    options.totalItems = moviesData.total_pages;
     console.log('Datele primite după căutare:', moviesData);
 
     if (!moviesData || moviesData.results.length === 0) {
       Notiflix.Notify.failure(
-        `Sorry, we couldn't find any films matching "${searchQuery}". Please try a different search term.`
+        `Sorry, we couldn't find any films matching "${currentSearchQuery}". Please try a different search term.`
       );
       return;
     } else {
       Notiflix.Notify.success(
-        `We found ${moviesData.total_results} films matching "${searchQuery}".`
+        `We found ${moviesData.total_results} films matching "${currentSearchQuery}".`
       );
     }
+    
 
-    const totalPages = moviesData.total_pages;
-    createFilmCard(moviesData, totalPages);
+    createPagination(totalItems);
+
     searchForm.elements.searchQuery.value = '';
   } catch (error) {
     console.error(
