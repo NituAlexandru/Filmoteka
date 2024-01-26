@@ -1,13 +1,11 @@
 import Pagination from 'tui-pagination';
 import { fetchMovies } from './fetchMovies';
-import { options, totalItems } from './options-pagination';
+import { options } from './options-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { createFilmCard } from './createFilmCard';
 import { currentSearchQuery } from './searchForm';
 
-
 export async function createPagination() {
-
   const pagination = new Pagination('pagination', options);
 
   pagination.on('afterMove', onPaginationClick);

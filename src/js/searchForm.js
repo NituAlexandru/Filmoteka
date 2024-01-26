@@ -1,5 +1,5 @@
 import { fetchMovies } from './fetchMovies';
-import { options, totalItems } from './options-pagination';
+import { options } from './options-pagination';
 import { createPagination } from './createPagination';
 import Notiflix from 'notiflix';
 
@@ -24,7 +24,7 @@ searchForm.addEventListener('submit', async e => {
 
   try {
     const moviesData = await fetchMovies(currentSearchQuery);
-    options.totalItems = moviesData.total_pages;
+
     console.log('Datele primite după căutare:', moviesData);
 
     if (!moviesData || moviesData.results.length === 0) {
@@ -38,8 +38,8 @@ searchForm.addEventListener('submit', async e => {
       );
     }
     
-
-    createPagination(totalItems);
+    options.totalItems = moviesData.total_pages;
+    createPagination(options.totalItems);
 
     searchForm.elements.searchQuery.value = '';
   } catch (error) {
