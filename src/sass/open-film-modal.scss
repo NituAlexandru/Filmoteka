@@ -12,9 +12,10 @@
 }
 
 .film-modal-content {
+  max-height: 98%;
   position: relative;
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 5px 7px 15px rgba(184, 184, 184, 0.6);
   width: 80%;
@@ -25,6 +26,7 @@
   justify-content: space-around;
   gap: 10px;
   font-family: Roboto;
+  overflow-y: auto;
 }
 
 .close-modal {
@@ -64,26 +66,32 @@
 }
 .film-modal-title {
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
   color: #b92f2c;
   font-style: normal;
-  line-height: 24px;
-  margin-top: 30px;
+  line-height: 20px;
+  margin-top: 15px;
+}
+.film-modal-content h3 {
+  font-size: 16px;
 }
 .film-modal-score span {
   display: inline-block;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   background-color: #b92f2c;
   border-radius: 4px;
   padding: 2px 6px;
 }
 .modal-genre-paragraph b {
-  font-size: 18px;
+  font-size: 16px;
 }
 .film-modal-about {
-  font-size: 22px;
+  font-size: 18px;
+}
+.film-modal .film-modal-content p {
+  font-size: 14px;
 }
 .film-modal-actions {
   display: flex;
@@ -93,7 +101,10 @@
   padding: 10px;
 }
 .film-modal-actions button {
-  padding: 15px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
   gap: 10px;
   border-radius: 100px;
   background: #b92f2c;
@@ -153,14 +164,12 @@
     font-size: 30px;
     padding: 0;
   }
-  .film-modal-title {
-    margin-top: 25px;
-  }
+
   .film-modal-content .film-modal-actions button {
-    padding: 10px;
+    padding: 5px;
   }
   .film-modal-actions button {
-    padding: 10px;
+    padding: 5px;
   }
 }
 
