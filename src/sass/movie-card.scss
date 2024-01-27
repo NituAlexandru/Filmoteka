@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 :root {
   /* Definirea variabilelor pentru temele Light și Dark */
@@ -140,8 +141,8 @@
 /* Media query pentru desktop (min-width: 1280px) */
 @media (min-width: 1280px) {
   .movie-wrapper {
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1280px;
   }
   .movie-wrapper__info {
     font-size: 20px;
@@ -149,7 +150,7 @@
     line-height: 24px;
   }
   .movie-wrapper__card-img img {
-    width: 295px; 
+    width: 295px;
     height: auto; /* Sau o valoare specifică, dacă este necesar */
   }
 
@@ -158,17 +159,16 @@
   }
   .queue,
   .watched {
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 40px;
   }
 }
 
-
 /* Stiluri pentru Dark theme */
 body.dark-theme {
-  --background-color-light: #000000; 
-  --text-color-light: #ffffff; 
+  --background-color-light: #000000;
+  --text-color-light: #ffffff;
 }
 
 .dark {
