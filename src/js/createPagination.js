@@ -4,6 +4,7 @@ import { options } from './options-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { createFilmCard } from './createFilmCard';
 import { currentSearchQuery } from './searchForm';
+import '../sass/pagination.scss';
 
 export async function createPagination() {
   const pagination = new Pagination('pagination', options);
