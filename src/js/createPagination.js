@@ -49,7 +49,7 @@ export async function createPagination() {
 
   function scrollToTop() {
     window.scrollTo({
-      top: 240,
+      top: 0,
       behavior: 'smooth',
     });
   }

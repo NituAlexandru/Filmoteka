@@ -1,7 +1,9 @@
 import { fetchMovies } from './fetchMovies';
 import { options } from './options-pagination';
 import { createPagination } from './createPagination';
+import { createFilmCard } from './createFilmCard';
 import Notiflix from 'notiflix';
+import { createFilmCard } from './createFilmCard';
 
 let searchQuery = '';
 export let currentSearchQuery = '';
@@ -40,6 +42,8 @@ searchForm.addEventListener('submit', async e => {
     
     options.totalItems = moviesData.total_pages;
     createPagination(options.totalItems);
+
+    createFilmCard(moviesData);
 
     searchForm.elements.searchQuery.value = '';
   } catch (error) {
