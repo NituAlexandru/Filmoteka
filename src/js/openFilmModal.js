@@ -13,8 +13,6 @@ import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 export const openFilmModal = (filmData, cardHtml) => {
-  // Asigurați-vă că filmData este obiectul așteptat și dacă nu, folosiți filmData.data
-  // console.log('Opening modal for film:', filmData);
   if (
     !filmData ||
     typeof filmData !== 'object' ||
@@ -26,7 +24,7 @@ export const openFilmModal = (filmData, cardHtml) => {
     return;
   }
 
-  // Determinați numele genurilor
+  // Determina numele genurilor
   const genreNames = Array.isArray(filmData.genre_ids)
     ? filmData.genre_ids
         .map(id => {
@@ -120,6 +118,9 @@ export const openFilmModal = (filmData, cardHtml) => {
         !filmObject.isInQueue,
         filmObject.isWatched
       );
+      if (filmObject.isInQueue) {
+        removeFilmCardFromDOM(filmData.id);
+      }
     } else {
       // Dacă filmul nu este în local storage, îl adăugăm
       addToQueue({
@@ -140,6 +141,9 @@ export const openFilmModal = (filmData, cardHtml) => {
         filmObject.isInQueue,
         !filmObject.isWatched
       );
+      if (filmObject.isWatched) {
+        removeFilmCardFromDOM(filmData.id);
+      }
     } else {
       // Dacă filmul nu este în local storage, îl adăugăm
       addToWatched({
@@ -183,3 +187,17 @@ export const openFilmModal = (filmData, cardHtml) => {
   modal.addEventListener('click', handleModalClick);
   document.addEventListener('keydown', handleEscapeKey);
 };
+
+function removeFilmCardFromDOM(filmId) {
+  console.log(`Încercăm să eliminăm cardul cu ID-ul: ${filmId}`);
+  const filmCard = document.querySelector(
+    `.movie-wrapper__card[data-filmid="${filmId}"]`
+  );
+  if (filmCard) {
+    filmCard.remove();
+    console.log(`Cardul cu ID-ul: ${filmId} a fost eliminat.`);
+  } else {
+    console.log(`Cardul cu ID-ul: ${filmId} nu a fost găsit.`);
+  }
+}
+

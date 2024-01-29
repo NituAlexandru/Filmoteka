@@ -80,11 +80,10 @@ function handleWatchedClick(event) {
   if (queue) queue.innerHTML = '';
 
   // Manipulează și afișează conținutul pentru watched
-  // De exemplu, poți popula conținutul din localStorage sau o altă sursă
   if (watched) {
-    movie.style.display = 'none'; // Ascunde containerul movie
+    movie.style.display = 'none'; 
     watched.innerHTML = '';
-    watched.style.display = 'grid'; // Setează stilul display la grid pentru .watched
+    watched.style.display = 'grid'; 
     queue.style.display = 'none';
 
     for (let i = 0; i < localStorage.length; i++) {

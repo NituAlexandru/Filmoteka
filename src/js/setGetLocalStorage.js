@@ -13,12 +13,21 @@ export const addToStorage = (key, value) => {
 export const getFromStorage = key => {
   try {
     const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
+    if (!item) return null;
+
+    // Verifică dacă item-ul poate fi un obiect JSON
+    if (item.startsWith('{') || item.startsWith('[')) {
+      return JSON.parse(item);
+    } else {
+      // Pentru datele care nu sunt JSON (cum ar fi darkMode), doar returnează valoarea
+      return item;
+    }
   } catch (error) {
     console.error('Eroare la parsarea datelor din localStorage:', error);
-    return null; // sau returnați o valoare implicită adecvată
+    return null;
   }
 };
+
 
 // ------------------------------------------------------------------
 export const removeFromStorage = key => {
