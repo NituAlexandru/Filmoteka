@@ -26,3 +26,8 @@
   opacity: 0.5; /* Opacitate pentru butoanele dezactivate */
   pointer-events: none; /* Dezactivează evenimentele de mouse */
 }
+@media (max-width: 500px) {
+  .pagination .container #pagination {
+    max-width: 300px;
+  }
+}
