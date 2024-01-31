@@ -48,6 +48,7 @@ div a {
 .site-navigation {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 .site-nav-list,
 .watched-queue-container {
@@ -164,6 +165,9 @@ div a {
   font-size: 40px;
   color: #fff;
   flex-shrink: 0;
+}
+.theme-switch-wrapper {
+  margin-bottom: 10px;
 }
 /*-------------------------------------Very Small Devices----*/
 @media (max-width: 320px) {
